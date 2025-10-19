@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import { Button } from "./ui/button"
-import { Card } from "./ui/card"
 import { Input } from "./ui/input"
 import { Textarea } from "./ui/textarea"
 import { Droplet, Leaf, Recycle, Users, ArrowRight, CheckCircle2, Mail, Phone, MapPin } from "lucide-react"
@@ -97,9 +96,15 @@ export default function HidrocrinLanding() {
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
-            <Card className="p-8 hover:shadow-lg transition-shadow">
-              <div className="h-12 w-12 bg-red-100 rounded-lg flex items-center justify-center mb-6">
-                <Recycle className="h-6 w-6 text-red-600" />
+            <div 
+              className="p-8 rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl hover:shadow-2xl transition-all duration-300"
+              style={{
+                background: 'rgba(16, 185, 129, 0.08)',
+                backdropFilter: 'blur(20px)',
+              }}
+            >
+              <div className="h-12 w-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-6">
+                <Recycle className="h-6 w-6 text-emerald-600" />
               </div>
               <h3 className="text-2xl font-bold text-foreground mb-4">Residuos de Peluquerías</h3>
               <p className="text-muted-foreground leading-relaxed mb-4">
@@ -109,19 +114,25 @@ export default function HidrocrinLanding() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-red-600 mt-0.5 flex-shrink-0" />
+                  <CheckCircle2 className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
                   <span className="text-muted-foreground">Miles de toneladas de cabello desechado anualmente</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-red-600 mt-0.5 flex-shrink-0" />
+                  <CheckCircle2 className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
                   <span className="text-muted-foreground">Acumulación en vertederos y contaminación</span>
                 </li>
               </ul>
-            </Card>
+            </div>
 
-            <Card className="p-8 hover:shadow-lg transition-shadow">
-              <div className="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
-                <Droplet className="h-6 w-6 text-blue-600" />
+            <div 
+              className="p-8 rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl hover:shadow-2xl transition-all duration-300"
+              style={{
+                background: 'rgba(16, 185, 129, 0.08)',
+                backdropFilter: 'blur(20px)',
+              }}
+            >
+              <div className="h-12 w-12 bg-teal-100 rounded-lg flex items-center justify-center mb-6">
+                <Droplet className="h-6 w-6 text-teal-600" />
               </div>
               <h3 className="text-2xl font-bold text-foreground mb-4">Crisis de Sequía</h3>
               <p className="text-muted-foreground leading-relaxed mb-4">
@@ -130,15 +141,15 @@ export default function HidrocrinLanding() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                  <CheckCircle2 className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
                   <span className="text-muted-foreground">Reducción de rendimientos agrícolas</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                  <CheckCircle2 className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
                   <span className="text-muted-foreground">Necesidad de riego más eficiente</span>
                 </li>
               </ul>
-            </Card>
+            </div>
           </div>
         </div>
       </section>
@@ -220,32 +231,44 @@ export default function HidrocrinLanding() {
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="p-8 text-center hover:shadow-lg transition-shadow">
-              <div className="h-16 w-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Users className="h-8 w-8 text-green-600" />
+            <div 
+              className="p-8 text-center rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl hover:shadow-2xl transition-all duration-300"
+              style={{
+                background: 'rgba(16, 185, 129, 0.08)',
+                backdropFilter: 'blur(20px)',
+              }}
+            >
+              <div className="h-16 w-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Users className="h-8 w-8 text-emerald-600" />
               </div>
               <h3 className="text-xl font-bold text-foreground mb-4">Para Agricultores</h3>
               <ul className="space-y-3 text-left">
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                  <CheckCircle2 className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
                   <span className="text-muted-foreground">Reducción del consumo de agua hasta 40%</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                  <CheckCircle2 className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
                   <span className="text-muted-foreground">Mejora en la calidad del suelo</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                  <CheckCircle2 className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
                   <span className="text-muted-foreground">Aumento de productividad</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                  <CheckCircle2 className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
                   <span className="text-muted-foreground">Reducción de costos de riego</span>
                 </li>
               </ul>
-            </Card>
+            </div>
 
-            <Card className="p-8 text-center hover:shadow-lg transition-shadow">
+            <div 
+              className="p-8 text-center rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl hover:shadow-2xl transition-all duration-300"
+              style={{
+                background: 'rgba(16, 185, 129, 0.08)',
+                backdropFilter: 'blur(20px)',
+              }}
+            >
               <div className="h-16 w-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Recycle className="h-8 w-8 text-teal-600" />
               </div>
@@ -268,32 +291,38 @@ export default function HidrocrinLanding() {
                   <span className="text-muted-foreground">Certificación de sostenibilidad</span>
                 </li>
               </ul>
-            </Card>
+            </div>
 
-            <Card className="p-8 text-center hover:shadow-lg transition-shadow">
-              <div className="h-16 w-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Leaf className="h-8 w-8 text-emerald-600" />
+            <div 
+              className="p-8 text-center rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl hover:shadow-2xl transition-all duration-300"
+              style={{
+                background: 'rgba(16, 185, 129, 0.08)',
+                backdropFilter: 'blur(20px)',
+              }}
+            >
+              <div className="h-16 w-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Leaf className="h-8 w-8 text-teal-600" />
               </div>
               <h3 className="text-xl font-bold text-foreground mb-4">Para el Medio Ambiente</h3>
               <ul className="space-y-3 text-left">
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
+                  <CheckCircle2 className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
                   <span className="text-muted-foreground">Reducción de residuos en vertederos</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
+                  <CheckCircle2 className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
                   <span className="text-muted-foreground">Conservación de recursos hídricos</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
+                  <CheckCircle2 className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
                   <span className="text-muted-foreground">Economía circular en acción</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
+                  <CheckCircle2 className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
                   <span className="text-muted-foreground">Reducción de huella de carbono</span>
                 </li>
               </ul>
-            </Card>
+            </div>
           </div>
         </div>
       </section>
@@ -536,86 +565,175 @@ export default function HidrocrinLanding() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-4 border-t border-border bg-[rgba(16, 185, 129, 0.1)]">
-        <div className="container mx-auto">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div className="space-y-4">
-              <div className="flex items-center gap-2">
-                <Leaf className="h-6 w-6 text-emerald-600" />
-                <span className="text-xl font-bold text-foreground">Hidrocrin</span>
+      <footer className="relative py-20 px-4 overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-10 left-10 w-32 h-32 bg-emerald-300 rounded-full blur-3xl"></div>
+          <div className="absolute top-20 right-20 w-24 h-24 bg-teal-300 rounded-full blur-2xl"></div>
+          <div className="absolute bottom-10 left-1/3 w-40 h-40 bg-green-300 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="container mx-auto relative z-10">
+          {/* Main Footer Content */}
+          <div 
+            className="rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl p-12 mb-8"
+            style={{
+              background: 'rgba(16, 185, 129, 0.08)',
+              backdropFilter: 'blur(20px)',
+            }}
+          >
+            <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
+              {/* Brand Section */}
+              <div className="lg:col-span-1 md:col-span-2 space-y-6">
+                <div className="flex items-center gap-3">
+                  <div className="h-12 w-12 bg-emerald-100 rounded-xl flex items-center justify-center">
+                    <Leaf className="h-7 w-7 text-emerald-600" />
+                  </div>
+                  <span className="text-2xl font-bold text-foreground">Hidrocrin</span>
+                </div>
+                <p className="text-muted-foreground leading-relaxed text-base max-w-sm">
+                  Transformando residuos en soluciones sostenibles para la agricultura del futuro. 
+                  Innovación en economía circular para un mundo más verde.
+                </p>
+                <div className="flex items-center gap-4">
+                  <div className="h-10 w-10 bg-emerald-100 rounded-lg flex items-center justify-center hover:bg-emerald-200 transition-colors cursor-pointer">
+                    <Mail className="h-5 w-5 text-emerald-600" />
+                  </div>
+                  <div className="h-10 w-10 bg-teal-100 rounded-lg flex items-center justify-center hover:bg-teal-200 transition-colors cursor-pointer">
+                    <Phone className="h-5 w-5 text-teal-600" />
+                  </div>
+                  <div className="h-10 w-10 bg-emerald-100 rounded-lg flex items-center justify-center hover:bg-emerald-200 transition-colors cursor-pointer">
+                    <MapPin className="h-5 w-5 text-emerald-600" />
+                  </div>
+                </div>
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Transformando residuos en soluciones sostenibles para la agricultura del futuro.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold text-foreground mb-4">Navegación</h4>
-              <ul className="space-y-2">
-                <li>
-                  <a href="#problema" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                    El Problema
-                  </a>
-                </li>
-                <li>
-                  <a href="#solucion" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                    Solución
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#beneficios"
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    Beneficios
-                  </a>
-                </li>
-                <li>
-                  <a href="#proceso" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                    Proceso
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold text-foreground mb-4">Proyecto</h4>
-              <ul className="space-y-2">
-                <li>
-                  <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                    Sobre Nosotros
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                    Equipo
-                  </a>
-                </li>
-                <li>
-                  <a href="#contacto" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                    Contacto
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold text-foreground mb-4">Legal</h4>
-              <ul className="space-y-2">
-                <li>
-                  <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                    Privacidad
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                    Términos
-                  </a>
-                </li>
-              </ul>
+
+              {/* Navigation Links */}
+              <div className="space-y-6">
+                <h4 className="text-lg font-bold text-foreground mb-6">Navegación</h4>
+                <ul className="space-y-4">
+                  <li>
+                    <a href="#problema" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
+                      <div className="h-2 w-2 bg-emerald-400 rounded-full group-hover:bg-emerald-600 transition-colors"></div>
+                      <span className="text-base">El Problema</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#solucion" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
+                      <div className="h-2 w-2 bg-emerald-400 rounded-full group-hover:bg-emerald-600 transition-colors"></div>
+                      <span className="text-base">Solución</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#beneficios" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
+                      <div className="h-2 w-2 bg-emerald-400 rounded-full group-hover:bg-emerald-600 transition-colors"></div>
+                      <span className="text-base">Beneficios</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#proceso" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
+                      <div className="h-2 w-2 bg-emerald-400 rounded-full group-hover:bg-emerald-600 transition-colors"></div>
+                      <span className="text-base">Proceso</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Project Links */}
+              <div className="space-y-6">
+                <h4 className="text-lg font-bold text-foreground mb-6">Proyecto</h4>
+                <ul className="space-y-4">
+                  <li>
+                    <a href="#" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
+                      <div className="h-2 w-2 bg-teal-400 rounded-full group-hover:bg-teal-600 transition-colors"></div>
+                      <span className="text-base">Sobre Nosotros</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
+                      <div className="h-2 w-2 bg-teal-400 rounded-full group-hover:bg-teal-600 transition-colors"></div>
+                      <span className="text-base">Equipo</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#contacto" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
+                      <div className="h-2 w-2 bg-teal-400 rounded-full group-hover:bg-teal-600 transition-colors"></div>
+                      <span className="text-base">Contacto</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
+                      <div className="h-2 w-2 bg-teal-400 rounded-full group-hover:bg-teal-600 transition-colors"></div>
+                      <span className="text-base">Inversores</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Legal & Newsletter */}
+              <div className="space-y-6">
+                <h4 className="text-lg font-bold text-foreground mb-6">Legal</h4>
+                <ul className="space-y-4 mb-8">
+                  <li>
+                    <a href="#" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
+                      <div className="h-2 w-2 bg-emerald-400 rounded-full group-hover:bg-emerald-600 transition-colors"></div>
+                      <span className="text-base">Privacidad</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
+                      <div className="h-2 w-2 bg-emerald-400 rounded-full group-hover:bg-emerald-600 transition-colors"></div>
+                      <span className="text-base">Términos</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
+                      <div className="h-2 w-2 bg-emerald-400 rounded-full group-hover:bg-emerald-600 transition-colors"></div>
+                      <span className="text-base">Cookies</span>
+                    </a>
+                  </li>
+                </ul>
+                
+                {/* Newsletter */}
+                <div className="p-4 bg-white/20 rounded-2xl backdrop-blur-sm border border-emerald-200/20">
+                  <h5 className="font-semibold text-foreground mb-3">Mantente al día</h5>
+                  <p className="text-sm text-muted-foreground mb-3">Recibe las últimas novedades sobre Hidrocrin</p>
+                  <div className="flex gap-2">
+                    <input 
+                      type="email" 
+                      placeholder="tu@email.com" 
+                      className="flex-1 px-3 py-2 bg-white/50 border border-emerald-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-400/20 focus:border-emerald-400"
+                    />
+                    <Button size="sm" className="bg-emerald-600 hover:bg-emerald-700 text-white px-4">
+                      <ArrowRight className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="pt-8 border-t border-border text-center">
-            <p className="text-sm text-muted-foreground">
-              © 2025 Hidrocrin. Todos los derechos reservados. Proyecto de Economía Circular.
-            </p>
+
+          {/* Bottom Footer */}
+          <div 
+            className="rounded-2xl backdrop-blur-xl border border-emerald-200/20 shadow-xl p-8 text-center"
+            style={{
+              background: 'rgba(16, 185, 129, 0.05)',
+              backdropFilter: 'blur(15px)',
+            }}
+          >
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+              <p className="text-muted-foreground text-base">
+                © 2025 Hidrocrin. Todos los derechos reservados.
+              </p>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <span>Hecho con</span>
+                <Leaf className="h-4 w-4 text-emerald-600" />
+                <span>para un futuro sostenible</span>
+              </div>
+              <p className="text-sm text-emerald-600 font-medium">
+                Proyecto de Economía Circular
+              </p>
+            </div>
           </div>
         </div>
       </footer>
