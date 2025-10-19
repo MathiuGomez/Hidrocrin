@@ -49,8 +49,15 @@ export default function HidrocrinLanding() {
         <div className="container mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <div className="inline-block px-4 py-2 bg-emerald-100 text-emerald-800 rounded-full text-sm font-medium">
-                Innovación Sostenible
+              <div className="flex items-center gap-4 mb-6">
+                <img 
+                  src="/image/Logo-hidrocrin.jpg" 
+                  alt="Hidrocrin Logo" 
+                  className="h-16 w-16 object-contain"
+                />
+                <div className="inline-block px-4 py-2 bg-emerald-100 text-emerald-800 rounded-full text-sm font-medium">
+                  Innovación Sostenible
+                </div>
               </div>
               <h1 className="text-5xl lg:text-6xl font-bold text-foreground leading-tight text-balance">
                 Transformamos Cabello en Soluciones para la <span className="text-emerald-600">Agricultura</span>
@@ -400,8 +407,15 @@ export default function HidrocrinLanding() {
         
         <div className="container mx-auto max-w-5xl relative z-10">
           <div className="text-center mb-16">
-            <div className="inline-block px-6 py-3 bg-emerald-100 text-emerald-800 rounded-full text-lg font-medium mb-6">
-              Únete a la Revolución Verde
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <img 
+                src="/image/Logo-hidrocrin.jpg" 
+                alt="Hidrocrin Logo" 
+                className="h-20 w-20 object-contain"
+              />
+              <div className="inline-block px-6 py-3 bg-emerald-100 text-emerald-800 rounded-full text-lg font-medium">
+                Únete a la Revolución Verde
+              </div>
             </div>
             <h2 className="text-5xl font-bold text-foreground mb-6 leading-tight">
               Transformemos Juntos el Futuro
@@ -585,10 +599,12 @@ export default function HidrocrinLanding() {
             <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
               {/* Brand Section */}
               <div className="lg:col-span-1 md:col-span-2 space-y-6">
-                <div className="flex items-center gap-3">
-                  <div className="h-12 w-12 bg-emerald-100 rounded-xl flex items-center justify-center">
-                    <Leaf className="h-7 w-7 text-emerald-600" />
-                  </div>
+                <div className="flex items-center gap-4">
+                  <img 
+                    src="/image/Logo-hidrocrin.jpg" 
+                    alt="Hidrocrin Logo" 
+                    className="h-16 w-16 object-contain"
+                  />
                   <span className="text-2xl font-bold text-foreground">Hidrocrin</span>
                 </div>
                 <p className="text-muted-foreground leading-relaxed text-base max-w-sm">

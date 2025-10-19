@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Leaf } from 'lucide-react';
 import { gsap } from 'gsap';
 
 interface NavItem {
@@ -290,14 +289,13 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({
                 scrollToSection('#inicio');
               }}
               ref={logoRef}
-              className="rounded-full p-2 inline-flex items-center justify-center overflow-hidden"
-              style={{
-                width: 'var(--nav-h)',
-                height: 'var(--nav-h)',
-                background: 'var(--base, #000)'
-              }}
+              className="inline-flex items-center justify-center"
             >
-              <Leaf className="h-6 w-6 text-emerald-600" />
+              <img 
+                src="/image/Logo-hidrocrin.jpg" 
+                alt="Hidrocrin Logo" 
+                className="h-10 w-10 object-contain"
+              />
             </a>
             <span 
               className="absolute left-full ml-3 top-1/2 -translate-y-1/2 text-xl font-bold text-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap hidden sm:block cursor-pointer"
