@@ -361,87 +361,177 @@ export default function HidrocrinLanding() {
       </section>
 
       {/* Contacto Section */}
-      <section id="contacto" className="py-20 px-4 bg-muted/30">
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-foreground mb-4">Únete a la Revolución Verde</h2>
-            <p className="text-xl text-muted-foreground text-pretty">
-              ¿Eres agricultor, peluquero o simplemente te interesa nuestro proyecto? Contáctanos
+      <section id="contacto" className="py-20 px-4 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-20 left-10 w-32 h-32 bg-emerald-300 rounded-full blur-3xl"></div>
+          <div className="absolute top-40 right-20 w-24 h-24 bg-teal-300 rounded-full blur-2xl"></div>
+          <div className="absolute bottom-20 left-1/3 w-40 h-40 bg-green-300 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="container mx-auto max-w-5xl relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-block px-6 py-3 bg-emerald-100 text-emerald-800 rounded-full text-lg font-medium mb-6">
+              Únete a la Revolución Verde
+            </div>
+            <h2 className="text-5xl font-bold text-foreground mb-6 leading-tight">
+              Transformemos Juntos el Futuro
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
+              ¿Eres agricultor, peluquero o simplemente te interesa nuestro proyecto? 
+              Formemos una comunidad comprometida con la sostenibilidad y la economía circular.
             </p>
           </div>
-          <Card className="p-8">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label htmlFor="nombre" className="text-sm font-medium text-foreground">
-                    Nombre Completo
-                  </label>
-                  <Input
-                    id="nombre"
-                    placeholder="Tu nombre"
-                    value={formData.nombre}
-                    onChange={(e) => setFormData({ ...formData, nombre: e.target.value })}
-                    required
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium text-foreground">
-                    Correo Electrónico
-                  </label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="tu@email.com"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    required
-                  />
-                </div>
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Formulario de Contacto */}
+            <div 
+              className="p-10 rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl"
+              style={{
+                background: 'rgba(16, 185, 129, 0.08)',
+                backdropFilter: 'blur(20px)',
+              }}
+            >
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold text-foreground mb-3">Envíanos un Mensaje</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Cuéntanos sobre tu proyecto, inquietudes o cómo te gustaría colaborar con nosotros.
+                </p>
               </div>
-              <div className="space-y-2">
-                <label htmlFor="mensaje" className="text-sm font-medium text-foreground">
-                  Mensaje
-                </label>
-                <Textarea
-                  id="mensaje"
-                  placeholder="Cuéntanos cómo podemos ayudarte o cómo te gustaría colaborar..."
-                  rows={5}
-                  value={formData.mensaje}
-                  onChange={(e) => setFormData({ ...formData, mensaje: e.target.value })}
-                  required
-                />
-              </div>
-              <Button type="submit" size="lg" className="w-full bg-emerald-600 hover:bg-emerald-700 text-white">
-                Enviar Mensaje
-              </Button>
-            </form>
 
-            <div className="mt-12 pt-8 border-t border-border">
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="flex items-start gap-3">
-                  <Mail className="h-5 w-5 text-emerald-600 mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">Email</h4>
-                    <p className="text-sm text-muted-foreground">contacto@hidrocrin.com</p>
+              <form onSubmit={handleSubmit} className="space-y-8">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-3">
+                    <label htmlFor="nombre" className="text-sm font-semibold text-foreground block">
+                      Nombre Completo
+                    </label>
+                    <Input
+                      id="nombre"
+                      placeholder="Tu nombre completo"
+                      value={formData.nombre}
+                      onChange={(e) => setFormData({ ...formData, nombre: e.target.value })}
+                      required
+                      className="h-12 bg-white/50 border-emerald-200 focus:border-emerald-400 focus:ring-emerald-400/20 rounded-xl transition-all duration-300"
+                    />
+                  </div>
+                  <div className="space-y-3">
+                    <label htmlFor="email" className="text-sm font-semibold text-foreground block">
+                      Correo Electrónico
+                    </label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="tu@email.com"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      required
+                      className="h-12 bg-white/50 border-emerald-200 focus:border-emerald-400 focus:ring-emerald-400/20 rounded-xl transition-all duration-300"
+                    />
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <Phone className="h-5 w-5 text-emerald-600 mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">Teléfono</h4>
-                    <p className="text-sm text-muted-foreground">+56 9 89649463</p>
+                
+                <div className="space-y-3">
+                  <label htmlFor="mensaje" className="text-sm font-semibold text-foreground block">
+                    Mensaje
+                  </label>
+                  <Textarea
+                    id="mensaje"
+                    placeholder="Cuéntanos cómo podemos ayudarte o cómo te gustaría colaborar con Hidrocrin..."
+                    rows={6}
+                    value={formData.mensaje}
+                    onChange={(e) => setFormData({ ...formData, mensaje: e.target.value })}
+                    required
+                    className="bg-white/50 border-emerald-200 focus:border-emerald-400 focus:ring-emerald-400/20 rounded-xl transition-all duration-300 resize-none"
+                  />
+                </div>
+                
+                <Button 
+                  type="submit" 
+                  size="lg" 
+                  className="w-full h-14 bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white font-semibold text-lg rounded-xl shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-300"
+                >
+                  <Mail className="mr-3 h-5 w-5" />
+                  Enviar Mensaje
+                </Button>
+              </form>
+            </div>
+
+            {/* Información de Contacto */}
+            <div className="space-y-8">
+              <div 
+                className="p-8 rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl"
+                style={{
+                  background: 'rgba(16, 185, 129, 0.08)',
+                  backdropFilter: 'blur(20px)',
+                }}
+              >
+                <h3 className="text-2xl font-bold text-foreground mb-6">Información de Contacto</h3>
+                
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4 p-4 rounded-2xl bg-white/30 hover:bg-white/40 transition-all duration-300">
+                    <div className="h-12 w-12 bg-emerald-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Mail className="h-6 w-6 text-emerald-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1 text-lg">Email</h4>
+                      <p className="text-muted-foreground">contacto@hidrocrin.com</p>
+                      <p className="text-sm text-emerald-600 mt-1">Respuesta en 24 horas</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4 p-4 rounded-2xl bg-white/30 hover:bg-white/40 transition-all duration-300">
+                    <div className="h-12 w-12 bg-emerald-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Phone className="h-6 w-6 text-emerald-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1 text-lg">Teléfono</h4>
+                      <p className="text-muted-foreground">+56 9 89649463</p>
+                      <p className="text-sm text-emerald-600 mt-1">Lunes a Viernes 9:00 - 18:00</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4 p-4 rounded-2xl bg-white/30 hover:bg-white/40 transition-all duration-300">
+                    <div className="h-12 w-12 bg-emerald-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <MapPin className="h-6 w-6 text-emerald-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1 text-lg">Ubicación</h4>
+                      <p className="text-muted-foreground">Chile</p>
+                      <p className="text-sm text-emerald-600 mt-1">Servicio a nivel nacional</p>
+                    </div>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <MapPin className="h-5 w-5 text-emerald-600 mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">Ubicación</h4>
-                    <p className="text-sm text-muted-foreground">Chile</p>
+              </div>
+
+              {/* Card de Beneficios */}
+              <div 
+                className="p-8 rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl"
+                style={{
+                  background: 'rgba(16, 185, 129, 0.08)',
+                  backdropFilter: 'blur(20px)',
+                }}
+              >
+                <h3 className="text-xl font-bold text-foreground mb-4">¿Por qué Contactarnos?</h3>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-emerald-600 flex-shrink-0" />
+                    <span className="text-muted-foreground">Asesoría personalizada en agricultura sostenible</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-emerald-600 flex-shrink-0" />
+                    <span className="text-muted-foreground">Programas de reciclaje para peluquerías</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-emerald-600 flex-shrink-0" />
+                    <span className="text-muted-foreground">Colaboraciones y alianzas estratégicas</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-emerald-600 flex-shrink-0" />
+                    <span className="text-muted-foreground">Soporte técnico y seguimiento</span>
                   </div>
                 </div>
               </div>
             </div>
-          </Card>
+          </div>
         </div>
       </section>
 
