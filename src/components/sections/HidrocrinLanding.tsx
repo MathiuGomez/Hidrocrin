@@ -1,5 +1,5 @@
-import { useState } from "react"
-import { Link } from "react-router-dom"
+import { useState, useEffect } from "react"
+import { Link, useLocation } from "react-router-dom"
 import { Button } from "../ui/button"
 import { Input } from "../ui/input"
 import { Textarea } from "../ui/textarea"
@@ -9,11 +9,60 @@ import AnimatedNav from "../layout/AnimatedNav"
 import { IMAGES, IMAGE_ALTS } from "../../assets/images"
 
 export default function HidrocrinLanding() {
+  const location = useLocation()
   const [formData, setFormData] = useState({
     nombre: "",
     email: "",
     mensaje: "",
   })
+
+  useEffect(() => {
+    // Verificar si venimos de ContactoRedirect y debemos hacer scroll al contacto
+    const shouldScrollToContact = (location.state as { scrollToContact?: boolean })?.scrollToContact
+    
+    if (shouldScrollToContact) {
+      // Esperar a que la página se cargue completamente
+      const scrollToContact = () => {
+        // Buscar la sección del formulario de contacto
+        const contactoFormSection = document.getElementById("contacto-formulario")
+        if (contactoFormSection) {
+          // Calcular la posición considerando el header fijo
+          const headerOffset = 120
+          const elementPosition = contactoFormSection.getBoundingClientRect().top
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+          window.scrollTo({
+            top: Math.max(0, offsetPosition),
+            behavior: "smooth"
+          })
+        } else {
+          // Fallback a la sección contacto si no se encuentra
+          const contactoSection = document.getElementById("contacto")
+          if (contactoSection) {
+            const headerOffset = 120
+            const elementPosition = contactoSection.getBoundingClientRect().top
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+            window.scrollTo({
+              top: Math.max(0, offsetPosition),
+              behavior: "smooth"
+            })
+          }
+        }
+      }
+
+      // Intentar hacer scroll después de múltiples intentos para asegurar que funcione
+      const timeout1 = setTimeout(scrollToContact, 100)
+      const timeout2 = setTimeout(scrollToContact, 500)
+      const timeout3 = setTimeout(scrollToContact, 1000)
+      
+      return () => {
+        clearTimeout(timeout1)
+        clearTimeout(timeout2)
+        clearTimeout(timeout3)
+      }
+    }
+  }, [location.state])
 
   const navItems = [
     { href: "#inicio", label: "Inicio" },
