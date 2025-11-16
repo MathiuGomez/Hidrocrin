@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
+import { IMAGES, IMAGE_ALTS } from '../../assets/images';
 
 interface NavItem {
   href: string;
@@ -33,7 +35,7 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({
   const circleRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const tlRefs = useRef<(gsap.core.Timeline | null)[]>([]);
   const activeTweenRefs = useRef<(gsap.core.Tween | null)[]>([]);
-  const logoRef = useRef<HTMLAnchorElement>(null);
+  const logoRef = useRef<HTMLDivElement | null>(null);
   const logoTweenRef = useRef<gsap.core.Tween | null>(null);
   const hamburgerRef = useRef<HTMLButtonElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
@@ -190,18 +192,25 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({
     });
   };
 
-  const scrollToSection = (href: string) => {
+  const handleNavClick = (href: string, e: React.MouseEvent) => {
     if (href.startsWith('#')) {
+      e.preventDefault();
+      // Si es un hash (sección en la misma página)
       const elementId = href.substring(1);
       const element = document.getElementById(elementId);
       if (element) {
-        element.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-          inline: 'nearest'
+        // Calcular la posición considerando el header fijo
+        const headerOffset = 100;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
         });
       }
     }
+    // Si es una ruta, Link de react-router se encarga automáticamente
   };
 
   const toggleMobileMenu = () => {
@@ -280,33 +289,30 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({
         {/* Logo y nombre de marca a la izquierda */}
         <div className="flex items-center gap-3">
           <div className="relative group">
-            <a
-              href="#inicio"
-              aria-label="Home"
-              onMouseEnter={handleLogoEnter}
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('#inicio');
-              }}
-              ref={logoRef}
+            <div
+              ref={logoRef as React.RefObject<HTMLDivElement>}
               className="inline-flex items-center justify-center"
             >
-              <img 
-                src="/image/Logo-hidrocrin.jpg" 
-                alt="Hidrocrin Logo" 
-                className="h-10 w-10 object-contain"
-              />
-            </a>
-            <span 
+              <Link
+                to="/"
+                aria-label="Home"
+                onMouseEnter={handleLogoEnter}
+                className="inline-flex items-center justify-center"
+              >
+                <img 
+                  src={IMAGES.LOGO} 
+                  alt={IMAGE_ALTS.LOGO} 
+                  className="h-10 w-10 object-contain"
+                />
+              </Link>
+            </div>
+            <Link
+              to="/"
               className="absolute left-full ml-3 top-1/2 -translate-y-1/2 text-xl font-bold text-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap hidden sm:block cursor-pointer"
               onMouseEnter={handleTextEnter}
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('#inicio');
-              }}
             >
               Hidrocrin
-            </span>
+            </Link>
           </div>
         </div>
 
@@ -369,23 +375,26 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({
               const basePillClasses =
                 'relative overflow-hidden inline-flex items-center justify-center h-full no-underline rounded-full box-border font-semibold text-[16px] leading-[0] uppercase tracking-[0.2px] whitespace-nowrap cursor-pointer px-0';
 
+              const isHash = item.href.startsWith('#');
+              const NavComponent = isHash ? 'a' : Link;
+              const navProps = isHash 
+                ? { href: item.href }
+                : { to: item.href };
+
               return (
                 <li key={item.href} role="none" className="flex h-full">
-                  <a
+                  <NavComponent
                     role="menuitem"
-                    href={item.href}
+                    {...navProps}
                     className={basePillClasses}
                     style={pillStyle}
                     aria-label={item.ariaLabel || item.label}
                     onMouseEnter={() => handleEnter(i)}
                     onMouseLeave={() => handleLeave(i)}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToSection(item.href);
-                    }}
+                    onClick={(e) => handleNavClick(item.href, e)}
                   >
                     {PillContent}
-                  </a>
+                  </NavComponent>
                 </li>
               );
             })}
@@ -444,22 +453,30 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({
             const linkClasses =
               'block py-3 px-4 text-[16px] font-medium rounded-[50px] transition-all duration-200 ease-[cubic-bezier(0.25,0.1,0.25,1)]';
 
+            const isHash = item.href.startsWith('#');
+            const MobileNavComponent = isHash ? 'a' : Link;
+            const mobileNavProps = isHash 
+              ? { href: item.href }
+              : { to: item.href };
+
             return (
               <li key={item.href}>
-                  <a
-                    href={item.href}
-                    className={linkClasses}
-                    style={defaultStyle}
-                    onMouseEnter={hoverIn}
-                    onMouseLeave={hoverOut}
-                    onClick={(e) => {
+                <MobileNavComponent
+                  {...mobileNavProps}
+                  className={linkClasses}
+                  style={defaultStyle}
+                  onMouseEnter={hoverIn}
+                  onMouseLeave={hoverOut}
+                  onClick={(e) => {
+                    if (isHash) {
                       e.preventDefault();
-                      scrollToSection(item.href);
-                      setIsMobileMenuOpen(false);
-                    }}
-                  >
+                      handleNavClick(item.href, e);
+                    }
+                    setIsMobileMenuOpen(false);
+                  }}
+                >
                   {item.label}
-                </a>
+                </MobileNavComponent>
               </li>
             );
           })}

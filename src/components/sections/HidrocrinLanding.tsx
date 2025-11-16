@@ -1,9 +1,12 @@
-import React, { useState } from "react"
-import { Button } from "./ui/button"
-import { Input } from "./ui/input"
-import { Textarea } from "./ui/textarea"
+import { useState } from "react"
+import { Link } from "react-router-dom"
+import { Button } from "../ui/button"
+import { Input } from "../ui/input"
+import { Textarea } from "../ui/textarea"
+import { Video } from "../ui/video"
 import { Droplet, Leaf, Recycle, Users, ArrowRight, CheckCircle2, Mail, Phone, MapPin } from "lucide-react"
-import AnimatedNav from "./AnimatedNav"
+import AnimatedNav from "../layout/AnimatedNav"
+import { IMAGES, IMAGE_ALTS } from "../../assets/images"
 
 export default function HidrocrinLanding() {
   const [formData, setFormData] = useState({
@@ -17,7 +20,7 @@ export default function HidrocrinLanding() {
     { href: "#solucion", label: "Solución" },
     { href: "#proceso", label: "Proceso" },
     { href: "#beneficios", label: "Beneficios" },
-    { href: "#contacto", label: "Contacto" }
+    { href: "#contacto-formulario", label: "Contacto" }
   ]
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -51,8 +54,8 @@ export default function HidrocrinLanding() {
             <div className="space-y-6">
               <div className="flex items-center gap-4 mb-6">
                 <img 
-                  src="/image/Logo-hidrocrin.jpg" 
-                  alt="Hidrocrin Logo" 
+                  src={IMAGES.LOGO} 
+                  alt={IMAGE_ALTS.LOGO} 
                   className="h-16 w-16 object-contain"
                 />
                 <div className="inline-block px-4 py-2 bg-emerald-100 text-emerald-800 rounded-full text-sm font-medium">
@@ -67,7 +70,7 @@ export default function HidrocrinLanding() {
                 suelo, combatiendo la sequía y promoviendo la economía circular.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <a href="#contacto">
+                <a href="#contacto-formulario">
                   <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white w-full sm:w-auto">
                     Conoce Más
                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -83,8 +86,8 @@ export default function HidrocrinLanding() {
             <div className="relative">
               <div className="aspect-square rounded-2xl overflow-hidden">
                 <img 
-                  src="/image/Gemini_Generated_Image_qme85cqme85cqme8.png" 
-                  alt="Hidrocrin - Transformando cabello en agua para el futuro de la agricultura"
+                  src={IMAGES.HERO_IMAGE} 
+                  alt={IMAGE_ALTS.HERO_IMAGE}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -171,10 +174,20 @@ export default function HidrocrinLanding() {
         <div className="container mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
+              {/* Opción 1: Usar Video con link de YouTube/Vimeo o URL directa */}
+              {/* 
+              <Video 
+                src="https://www.youtube.com/watch?v=TU_VIDEO_ID_AQUI"
+                title="Video sobre nuestra solución"
+                className="shadow-2xl"
+              />
+              */}
+              
+              {/* Opción 2: Mantener la imagen (por defecto) */}
               <div className="aspect-video rounded-2xl overflow-hidden">
                 <img 
-                  src="/image/Gemini_Generated_Image_qme85cqme85cqme8 (1).png" 
-                  alt="Hidrocrin - Alfombras de cabello reciclado para agricultura sostenible"
+                  src={IMAGES.SOLUTION_IMAGE} 
+                  alt={IMAGE_ALTS.SOLUTION_IMAGE}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -409,8 +422,8 @@ export default function HidrocrinLanding() {
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-4 mb-8">
               <img 
-                src="/image/Logo-hidrocrin.jpg" 
-                alt="Hidrocrin Logo" 
+                src={IMAGES.LOGO} 
+                alt={IMAGE_ALTS.LOGO} 
                 className="h-20 w-20 object-contain"
               />
               <div className="inline-block px-6 py-3 bg-emerald-100 text-emerald-800 rounded-full text-lg font-medium">
@@ -420,12 +433,22 @@ export default function HidrocrinLanding() {
             <h2 className="text-5xl font-bold text-foreground mb-6 leading-tight">
               Transformemos Juntos el Futuro
             </h2>
+            
+            {/* Video Section */}
+            <div className="mb-8 max-w-4xl mx-auto">
+              <Video 
+                src="https://vimeo.com/1128926756/2677ba2e0c?share=copy"
+                title="Video sobre Hidrocrin"
+                className="shadow-2xl"
+              />
+            </div>
+            
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
               ¿Eres agricultor, peluquero o simplemente te interesa nuestro proyecto? 
               Formemos una comunidad comprometida con la sostenibilidad y la economía circular.
             </p>
           </div>
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <div id="contacto-formulario" className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Formulario de Contacto */}
             <div 
               className="p-10 rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl"
@@ -441,35 +464,34 @@ export default function HidrocrinLanding() {
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-8">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-3">
-                    <label htmlFor="nombre" className="text-sm font-semibold text-foreground block">
-                      Nombre Completo
-                    </label>
-                    <Input
-                      id="nombre"
-                      placeholder="Tu nombre completo"
-                      value={formData.nombre}
-                      onChange={(e) => setFormData({ ...formData, nombre: e.target.value })}
-                      required
-                      className="h-12 bg-white/50 border-emerald-200 focus:border-emerald-400 focus:ring-emerald-400/20 rounded-xl transition-all duration-300"
-                    />
-                  </div>
-                  <div className="space-y-3">
-                    <label htmlFor="email" className="text-sm font-semibold text-foreground block">
-                      Correo Electrónico
-                    </label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="tu@email.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      required
-                      className="h-12 bg-white/50 border-emerald-200 focus:border-emerald-400 focus:ring-emerald-400/20 rounded-xl transition-all duration-300"
-                    />
-                  </div>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="space-y-3">
+                  <label htmlFor="nombre" className="text-sm font-semibold text-foreground block">
+                    Nombre Completo
+                  </label>
+                  <Input
+                    id="nombre"
+                    placeholder="Tu nombre completo"
+                    value={formData.nombre}
+                    onChange={(e) => setFormData({ ...formData, nombre: e.target.value })}
+                    required
+                    className="h-12 bg-white/50 border-emerald-200 focus:border-emerald-400 focus:ring-emerald-400/20 rounded-xl transition-all duration-300"
+                  />
+                </div>
+                
+                <div className="space-y-3">
+                  <label htmlFor="email" className="text-sm font-semibold text-foreground block">
+                    Correo Electrónico
+                  </label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="tu@email.com"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    required
+                    className="h-12 bg-white/50 border-emerald-200 focus:border-emerald-400 focus:ring-emerald-400/20 rounded-xl transition-all duration-300"
+                  />
                 </div>
                 
                 <div className="space-y-3">
@@ -601,8 +623,8 @@ export default function HidrocrinLanding() {
               <div className="lg:col-span-1 md:col-span-2 space-y-6">
                 <div className="flex items-center gap-4">
                   <img 
-                    src="/image/Logo-hidrocrin.jpg" 
-                    alt="Hidrocrin Logo" 
+                    src={IMAGES.LOGO} 
+                    alt={IMAGE_ALTS.LOGO} 
                     className="h-16 w-16 object-contain"
                   />
                   <span className="text-2xl font-bold text-foreground">Hidrocrin</span>
@@ -660,27 +682,15 @@ export default function HidrocrinLanding() {
                 <h4 className="text-lg font-bold text-foreground mb-6">Proyecto</h4>
                 <ul className="space-y-4">
                   <li>
-                    <a href="#" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
+                    <Link to="/sobre-nosotros" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
                       <div className="h-2 w-2 bg-teal-400 rounded-full group-hover:bg-teal-600 transition-colors"></div>
                       <span className="text-base">Sobre Nosotros</span>
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
-                      <div className="h-2 w-2 bg-teal-400 rounded-full group-hover:bg-teal-600 transition-colors"></div>
-                      <span className="text-base">Equipo</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#contacto" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
+                    <a href="#contacto-formulario" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
                       <div className="h-2 w-2 bg-teal-400 rounded-full group-hover:bg-teal-600 transition-colors"></div>
                       <span className="text-base">Contacto</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
-                      <div className="h-2 w-2 bg-teal-400 rounded-full group-hover:bg-teal-600 transition-colors"></div>
-                      <span className="text-base">Inversores</span>
                     </a>
                   </li>
                 </ul>
@@ -691,22 +701,10 @@ export default function HidrocrinLanding() {
                 <h4 className="text-lg font-bold text-foreground mb-6">Legal</h4>
                 <ul className="space-y-4 mb-8">
                   <li>
-                    <a href="#" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
+                    <Link to="/terminos-y-condiciones" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
                       <div className="h-2 w-2 bg-emerald-400 rounded-full group-hover:bg-emerald-600 transition-colors"></div>
-                      <span className="text-base">Privacidad</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
-                      <div className="h-2 w-2 bg-emerald-400 rounded-full group-hover:bg-emerald-600 transition-colors"></div>
-                      <span className="text-base">Términos</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
-                      <div className="h-2 w-2 bg-emerald-400 rounded-full group-hover:bg-emerald-600 transition-colors"></div>
-                      <span className="text-base">Cookies</span>
-                    </a>
+                      <span className="text-base">Términos y condiciones</span>
+                    </Link>
                   </li>
                 </ul>
                 
