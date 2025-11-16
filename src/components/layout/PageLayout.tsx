@@ -1,4 +1,4 @@
-import { ReactNode } from "react"
+import type { ReactNode } from "react"
 import AnimatedNav from "./AnimatedNav"
 import Footer from "./Footer"
 

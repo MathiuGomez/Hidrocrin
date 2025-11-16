@@ -376,25 +376,35 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({
                 'relative overflow-hidden inline-flex items-center justify-center h-full no-underline rounded-full box-border font-semibold text-[16px] leading-[0] uppercase tracking-[0.2px] whitespace-nowrap cursor-pointer px-0';
 
               const isHash = item.href.startsWith('#');
-              const NavComponent = isHash ? 'a' : Link;
-              const navProps = isHash 
-                ? { href: item.href }
-                : { to: item.href };
-
               return (
                 <li key={item.href} role="none" className="flex h-full">
-                  <NavComponent
-                    role="menuitem"
-                    {...navProps}
-                    className={basePillClasses}
-                    style={pillStyle}
-                    aria-label={item.ariaLabel || item.label}
-                    onMouseEnter={() => handleEnter(i)}
-                    onMouseLeave={() => handleLeave(i)}
-                    onClick={(e) => handleNavClick(item.href, e)}
-                  >
-                    {PillContent}
-                  </NavComponent>
+                  {isHash ? (
+                    <a
+                      role="menuitem"
+                      href={item.href}
+                      className={basePillClasses}
+                      style={pillStyle}
+                      aria-label={item.ariaLabel || item.label}
+                      onMouseEnter={() => handleEnter(i)}
+                      onMouseLeave={() => handleLeave(i)}
+                      onClick={(e) => handleNavClick(item.href, e)}
+                    >
+                      {PillContent}
+                    </a>
+                  ) : (
+                    <Link
+                      role="menuitem"
+                      to={item.href}
+                      className={basePillClasses}
+                      style={pillStyle}
+                      aria-label={item.ariaLabel || item.label}
+                      onMouseEnter={() => handleEnter(i)}
+                      onMouseLeave={() => handleLeave(i)}
+                      onClick={(e) => handleNavClick(item.href, e)}
+                    >
+                      {PillContent}
+                    </Link>
+                  )}
                 </li>
               );
             })}
@@ -454,29 +464,37 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({
               'block py-3 px-4 text-[16px] font-medium rounded-[50px] transition-all duration-200 ease-[cubic-bezier(0.25,0.1,0.25,1)]';
 
             const isHash = item.href.startsWith('#');
-            const MobileNavComponent = isHash ? 'a' : Link;
-            const mobileNavProps = isHash 
-              ? { href: item.href }
-              : { to: item.href };
-
             return (
               <li key={item.href}>
-                <MobileNavComponent
-                  {...mobileNavProps}
-                  className={linkClasses}
-                  style={defaultStyle}
-                  onMouseEnter={hoverIn}
-                  onMouseLeave={hoverOut}
-                  onClick={(e) => {
-                    if (isHash) {
+                {isHash ? (
+                  <a
+                    href={item.href}
+                    className={linkClasses}
+                    style={defaultStyle}
+                    onMouseEnter={hoverIn}
+                    onMouseLeave={hoverOut}
+                    onClick={(e) => {
                       e.preventDefault();
                       handleNavClick(item.href, e);
-                    }
-                    setIsMobileMenuOpen(false);
-                  }}
-                >
-                  {item.label}
-                </MobileNavComponent>
+                      setIsMobileMenuOpen(false);
+                    }}
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link
+                    to={item.href}
+                    className={linkClasses}
+                    style={defaultStyle}
+                    onMouseEnter={hoverIn}
+                    onMouseLeave={hoverOut}
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                    }}
+                  >
+                    {item.label}
+                  </Link>
+                )}
               </li>
             );
           })}

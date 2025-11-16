@@ -50,7 +50,7 @@ export default function Historia() {
   return (
     <PageLayout>
       {/* Hero Section */}
-      <section className="pt-32 pb-4 px-4 relative overflow-hidden">
+      <section className="pt-32 pb-2 px-4 relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 left-10 w-32 h-32 bg-emerald-300 rounded-full blur-3xl"></div>
@@ -74,10 +74,10 @@ export default function Historia() {
       </section>
 
       {/* Origen Section */}
-      <section className="pt-4 pb-4 px-4">
+      <section className="pt-2 pb-2 px-4">
         <div className="container mx-auto max-w-4xl">
           <div 
-            className="p-8 rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl mb-4"
+            className="p-8 rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl mb-2"
             style={{
               background: 'rgba(16, 185, 129, 0.08)',
               backdropFilter: 'blur(20px)',
@@ -101,10 +101,10 @@ export default function Historia() {
       </section>
 
       {/* Investigación Section */}
-      <section className="pt-0 pb-4 px-4 bg-muted/30">
+      <section className="pt-0 pb-2 px-4 bg-muted/30">
         <div className="container mx-auto max-w-4xl">
           <div 
-            className="p-8 rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl mb-4"
+            className="p-8 rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl mb-2"
             style={{
               background: 'rgba(16, 185, 129, 0.08)',
               backdropFilter: 'blur(20px)',
@@ -130,9 +130,9 @@ export default function Historia() {
       </section>
 
       {/* Misión y Visión Section */}
-      <section className="pt-0 pb-12 px-4">
+      <section className="pt-0 pb-4 px-4">
         <div className="container mx-auto max-w-5xl">
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="grid md:grid-cols-2 gap-3">
             {/* Misión */}
             <div 
               className="p-8 rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl"
@@ -177,16 +177,16 @@ export default function Historia() {
       </section>
 
       {/* Eventos Section */}
-      <section className="pt-8 pb-12 px-4 bg-muted/30">
+      <section className="pt-4 pb-8 px-4 bg-muted/30">
         <div className="container mx-auto max-w-5xl">
-          <div className="text-center mb-8">
+          <div className="text-center mb-6">
             <h2 className="text-4xl font-bold text-foreground mb-3">Nuestros Eventos y Participaciones</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Compartiendo conocimiento y expandiendo nuestro impacto
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
             {eventos.map((evento, index) => {
               const Icon = evento.icon
               return (
@@ -220,9 +220,9 @@ export default function Historia() {
       </section>
 
       {/* Galería Section - Preparada para imágenes */}
-      <section className="pt-8 pb-12 px-4">
+      <section className="pt-4 pb-8 px-4">
         <div className="container mx-auto max-w-5xl">
-          <div className="text-center mb-8">
+          <div className="text-center mb-6">
             <h2 className="text-4xl font-bold text-foreground mb-3">Imágenes de Nuestra Historia</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Momentos que han marcado nuestro camino
