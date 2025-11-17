@@ -37,6 +37,8 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({
   const activeTweenRefs = useRef<(gsap.core.Tween | null)[]>([]);
   const logoRef = useRef<HTMLDivElement | null>(null);
   const logoTweenRef = useRef<gsap.core.Tween | null>(null);
+  const textRef = useRef<HTMLAnchorElement | null>(null);
+  const textTweenRef = useRef<gsap.core.Tween | null>(null);
   const hamburgerRef = useRef<HTMLButtonElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const navItemsRef = useRef<HTMLDivElement>(null);
@@ -125,6 +127,12 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({
       }
     }
 
+    // Inicializar el texto del logo
+    const text = textRef.current;
+    if (text) {
+      gsap.set(text, { opacity: 0, x: -10 });
+    }
+
     return () => window.removeEventListener('resize', onResize);
   }, [items, ease, initialLoadAnimation]);
 
@@ -168,7 +176,10 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({
 
   const handleLogoEnter = () => {
     const logo = logoRef.current;
+    const text = textRef.current;
     if (!logo) return;
+    
+    // Rotar el logo
     logoTweenRef.current?.kill();
     gsap.set(logo, { rotate: 0 });
     logoTweenRef.current = gsap.to(logo, {
@@ -177,6 +188,33 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({
       ease,
       overwrite: 'auto'
     });
+
+    // Mostrar el texto más lentamente
+    if (text) {
+      textTweenRef.current?.kill();
+      gsap.set(text, { opacity: 0, x: -10 });
+      textTweenRef.current = gsap.to(text, {
+        opacity: 1,
+        x: 0,
+        duration: 0.8,
+        ease: 'power2.out',
+        overwrite: 'auto'
+      });
+    }
+  };
+
+  const handleLogoLeave = () => {
+    const text = textRef.current;
+    if (text) {
+      textTweenRef.current?.kill();
+      textTweenRef.current = gsap.to(text, {
+        opacity: 0,
+        x: -10,
+        duration: 0.4,
+        ease: 'power2.in',
+        overwrite: 'auto'
+      });
+    }
   };
 
   const handleTextEnter = () => {
@@ -292,11 +330,12 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({
             <div
               ref={logoRef as React.RefObject<HTMLDivElement>}
               className="inline-flex items-center justify-center"
+              onMouseEnter={handleLogoEnter}
+              onMouseLeave={handleLogoLeave}
             >
               <Link
                 to="/"
                 aria-label="Home"
-                onMouseEnter={handleLogoEnter}
                 className="inline-flex items-center justify-center"
               >
                 <img 
@@ -307,8 +346,9 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({
               </Link>
             </div>
             <Link
+              ref={textRef}
               to="/"
-              className="absolute left-full ml-3 top-1/2 -translate-y-1/2 text-xl font-bold text-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap hidden sm:block cursor-pointer"
+              className="absolute left-full ml-3 top-1/2 -translate-y-1/2 text-xl font-bold text-emerald-600 opacity-0 whitespace-nowrap hidden sm:block cursor-pointer"
               onMouseEnter={handleTextEnter}
             >
               Hidrocrin

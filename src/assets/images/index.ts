@@ -1,6 +1,6 @@
 // Image paths constants
 export const IMAGES = {
-  LOGO: '/assets/images/Logo-hidrocrin.jpg',
+  LOGO: '/assets/images/logo-v2.png',
   HERO_IMAGE: '/assets/images/Gemini_Generated_Image_qme85cqme85cqme8.png',
   SOLUTION_IMAGE: '/assets/images/Gemini_Generated_Image_qme85cqme85cqme8 (1).png',
   SOBRE_NOSOTROS: '/assets/images/WhatsApp Image 2025-11-16 at 09.12.36_5c08015f.jpg'

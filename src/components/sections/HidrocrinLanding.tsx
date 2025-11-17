@@ -4,7 +4,7 @@ import { Button } from "../ui/button"
 import { Input } from "../ui/input"
 import { Textarea } from "../ui/textarea"
 import { Video } from "../ui/video"
-import { Droplet, Leaf, Recycle, Users, ArrowRight, CheckCircle2, Mail, Phone, MapPin } from "lucide-react"
+import { Droplet, Leaf, Recycle, Users, ArrowRight, CheckCircle2, Mail, Phone, MapPin, Instagram, Facebook } from "lucide-react"
 import AnimatedNav from "../layout/AnimatedNav"
 import { IMAGES, IMAGE_ALTS } from "../../assets/images"
 
@@ -162,10 +162,14 @@ export default function HidrocrinLanding() {
                 backdropFilter: 'blur(20px)',
               }}
             >
-              <div className="h-12 w-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-6">
-                <Recycle className="h-6 w-6 text-emerald-600" />
+              <div className="flex items-center gap-4 mb-4">
+                <h3 className="text-2xl font-bold text-foreground">Residuos de Peluquerías</h3>
+                <img 
+                  src={IMAGES.LOGO} 
+                  alt={IMAGE_ALTS.LOGO} 
+                  className="h-12 object-contain"
+                />
               </div>
-              <h3 className="text-2xl font-bold text-foreground mb-4">Residuos de Peluquerías</h3>
               <p className="text-muted-foreground leading-relaxed mb-4">
                 Las peluquerías generan toneladas de cabello que terminan en vertederos, contribuyendo a la
                 contaminación ambiental. Este recurso orgánico se desperdicia cuando podría tener un segundo uso
@@ -190,10 +194,14 @@ export default function HidrocrinLanding() {
                 backdropFilter: 'blur(20px)',
               }}
             >
-              <div className="h-12 w-12 bg-teal-100 rounded-lg flex items-center justify-center mb-6">
-                <Droplet className="h-6 w-6 text-teal-600" />
+              <div className="flex items-center gap-4 mb-4">
+                <h3 className="text-2xl font-bold text-foreground">Crisis de Sequía</h3>
+                <img 
+                  src={IMAGES.LOGO} 
+                  alt={IMAGE_ALTS.LOGO} 
+                  className="h-12 object-contain"
+                />
               </div>
-              <h3 className="text-2xl font-bold text-foreground mb-4">Crisis de Sequía</h3>
               <p className="text-muted-foreground leading-relaxed mb-4">
                 La escasez de agua afecta gravemente a la agricultura, reduciendo la productividad y amenazando la
                 seguridad alimentaria. Los agricultores necesitan soluciones que optimicen el uso del agua.
@@ -301,17 +309,24 @@ export default function HidrocrinLanding() {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             <div 
-              className="p-8 text-center rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl hover:shadow-2xl transition-all duration-300"
+              className="p-8 rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl hover:shadow-2xl transition-all duration-300"
               style={{
                 background: 'rgba(16, 185, 129, 0.08)',
                 backdropFilter: 'blur(20px)',
               }}
             >
-              <div className="h-16 w-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Users className="h-8 w-8 text-emerald-600" />
+              <div className="flex items-center gap-4 mb-4">
+                <h3 className="text-2xl font-bold text-foreground">Para Agricultores</h3>
+                <img 
+                  src={IMAGES.LOGO} 
+                  alt={IMAGE_ALTS.LOGO} 
+                  className="h-12 object-contain"
+                />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-4">Para Agricultores</h3>
-              <ul className="space-y-3 text-left">
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                Los agricultores obtienen múltiples ventajas al implementar nuestras alfombras de cabello reciclado en sus cultivos.
+              </p>
+              <ul className="space-y-2">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
                   <span className="text-muted-foreground">Reducción del consumo de agua hasta 40%</span>
@@ -332,17 +347,24 @@ export default function HidrocrinLanding() {
             </div>
 
             <div 
-              className="p-8 text-center rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl hover:shadow-2xl transition-all duration-300"
+              className="p-8 rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl hover:shadow-2xl transition-all duration-300"
               style={{
                 background: 'rgba(16, 185, 129, 0.08)',
                 backdropFilter: 'blur(20px)',
               }}
             >
-              <div className="h-16 w-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Recycle className="h-8 w-8 text-teal-600" />
+              <div className="flex items-center gap-4 mb-4">
+                <h3 className="text-2xl font-bold text-foreground">Para Peluquerías</h3>
+                <img 
+                  src={IMAGES.LOGO} 
+                  alt={IMAGE_ALTS.LOGO} 
+                  className="h-12 object-contain"
+                />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-4">Para Peluquerías</h3>
-              <ul className="space-y-3 text-left">
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                Las peluquerías pueden contribuir activamente a la sostenibilidad mientras mejoran su imagen de marca.
+              </p>
+              <ul className="space-y-2">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
                   <span className="text-muted-foreground">Gestión responsable de residuos</span>
@@ -363,17 +385,24 @@ export default function HidrocrinLanding() {
             </div>
 
             <div 
-              className="p-8 text-center rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl hover:shadow-2xl transition-all duration-300"
+              className="p-8 rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl hover:shadow-2xl transition-all duration-300"
               style={{
                 background: 'rgba(16, 185, 129, 0.08)',
                 backdropFilter: 'blur(20px)',
               }}
             >
-              <div className="h-16 w-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Leaf className="h-8 w-8 text-teal-600" />
+              <div className="flex items-center gap-4 mb-4">
+                <h3 className="text-2xl font-bold text-foreground">Para el Medio Ambiente</h3>
+                <img 
+                  src={IMAGES.LOGO} 
+                  alt={IMAGE_ALTS.LOGO} 
+                  className="h-12 object-contain"
+                />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-4">Para el Medio Ambiente</h3>
-              <ul className="space-y-3 text-left">
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                Nuestra solución promueve la economía circular y reduce el impacto ambiental de manera significativa.
+              </p>
+              <ul className="space-y-2">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
                   <span className="text-muted-foreground">Reducción de residuos en vertederos</span>
@@ -397,18 +426,32 @@ export default function HidrocrinLanding() {
       </section>
 
       {/* Proceso Section */}
-      <section id="proceso" className="py-20 px-4">
-        <div className="container mx-auto">
+      <section id="proceso" className="py-20 px-4 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-20 left-10 w-32 h-32 bg-emerald-300 rounded-full blur-3xl"></div>
+          <div className="absolute top-40 right-20 w-24 h-24 bg-teal-300 rounded-full blur-2xl"></div>
+          <div className="absolute bottom-20 left-1/3 w-40 h-40 bg-green-300 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="container mx-auto relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-foreground mb-4">Nuestro Proceso Circular</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
               Un ciclo sostenible que transforma residuos en recursos valiosos
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 items-center">
+            {/* Paso 1 */}
             <div className="relative">
-              <div className="text-center">
-                <div className="h-20 w-20 bg-emerald-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold">
+              <div 
+                className="p-8 rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl text-center h-full"
+                style={{
+                  background: 'rgba(16, 185, 129, 0.08)',
+                  backdropFilter: 'blur(20px)',
+                }}
+              >
+                <div className="h-20 w-20 bg-gradient-to-br from-emerald-600 to-emerald-700 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold shadow-lg">
                   1
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-3">Recolección</h3>
@@ -416,12 +459,24 @@ export default function HidrocrinLanding() {
                   Recogemos el cabello de peluquerías asociadas que participan en nuestro programa de reciclaje.
                 </p>
               </div>
-              <div className="hidden lg:block absolute top-10 -right-4 w-8 h-0.5 bg-emerald-300" />
+              {/* Flecha - Centrada en el espacio entre cards */}
+              <div className="hidden lg:flex absolute top-1/2 right-0 -translate-y-1/2 translate-x-4 z-20 items-center justify-center pointer-events-none">
+                <div className="bg-emerald-100 rounded-full p-2 shadow-lg border border-emerald-200">
+                  <ArrowRight className="h-6 w-6 text-emerald-600" />
+                </div>
+              </div>
             </div>
 
+            {/* Paso 2 */}
             <div className="relative">
-              <div className="text-center">
-                <div className="h-20 w-20 bg-emerald-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold">
+              <div 
+                className="p-8 rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl text-center h-full"
+                style={{
+                  background: 'rgba(16, 185, 129, 0.08)',
+                  backdropFilter: 'blur(20px)',
+                }}
+              >
+                <div className="h-20 w-20 bg-gradient-to-br from-emerald-600 to-emerald-700 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold shadow-lg">
                   2
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-3">Procesamiento</h3>
@@ -429,12 +484,24 @@ export default function HidrocrinLanding() {
                   Limpiamos y procesamos el cabello, eliminando impurezas y preparándolo para su transformación.
                 </p>
               </div>
-              <div className="hidden lg:block absolute top-10 -right-4 w-8 h-0.5 bg-emerald-300" />
+              {/* Flecha - Centrada en el espacio entre cards */}
+              <div className="hidden lg:flex absolute top-1/2 right-0 -translate-y-1/2 translate-x-4 z-20 items-center justify-center pointer-events-none">
+                <div className="bg-emerald-100 rounded-full p-2 shadow-lg border border-emerald-200">
+                  <ArrowRight className="h-6 w-6 text-emerald-600" />
+                </div>
+              </div>
             </div>
 
+            {/* Paso 3 */}
             <div className="relative">
-              <div className="text-center">
-                <div className="h-20 w-20 bg-emerald-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold">
+              <div 
+                className="p-8 rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl text-center h-full"
+                style={{
+                  background: 'rgba(16, 185, 129, 0.08)',
+                  backdropFilter: 'blur(20px)',
+                }}
+              >
+                <div className="h-20 w-20 bg-gradient-to-br from-emerald-600 to-emerald-700 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold shadow-lg">
                   3
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-3">Fabricación</h3>
@@ -442,17 +509,31 @@ export default function HidrocrinLanding() {
                   Tejemos las alfombras con técnicas especiales que maximizan la retención de agua y nutrientes.
                 </p>
               </div>
-              <div className="hidden lg:block absolute top-10 -right-4 w-8 h-0.5 bg-emerald-300" />
+              {/* Flecha - Centrada en el espacio entre cards */}
+              <div className="hidden lg:flex absolute top-1/2 right-0 -translate-y-1/2 translate-x-4 z-20 items-center justify-center pointer-events-none">
+                <div className="bg-emerald-100 rounded-full p-2 shadow-lg border border-emerald-200">
+                  <ArrowRight className="h-6 w-6 text-emerald-600" />
+                </div>
+              </div>
             </div>
 
-            <div className="text-center">
-              <div className="h-20 w-20 bg-emerald-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold">
-                4
+            {/* Paso 4 */}
+            <div className="relative">
+              <div 
+                className="p-8 rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl text-center h-full"
+                style={{
+                  background: 'rgba(16, 185, 129, 0.08)',
+                  backdropFilter: 'blur(20px)',
+                }}
+              >
+                <div className="h-20 w-20 bg-gradient-to-br from-emerald-600 to-emerald-700 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold shadow-lg">
+                  4
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-3">Aplicación</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Los agricultores instalan las alfombras en sus cultivos, mejorando la eficiencia hídrica.
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-3">Aplicación</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Los agricultores instalan las alfombras en sus cultivos, mejorando la eficiencia hídrica.
-              </p>
             </div>
           </div>
         </div>
@@ -497,10 +578,10 @@ export default function HidrocrinLanding() {
               Formemos una comunidad comprometida con la sostenibilidad y la economía circular.
             </p>
           </div>
-          <div id="contacto-formulario" className="grid lg:grid-cols-2 gap-12 items-start">
+          <div id="contacto-formulario" className="grid lg:grid-cols-2 gap-12 items-stretch">
             {/* Formulario de Contacto */}
             <div 
-              className="p-10 rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl"
+              className="p-10 rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl h-full flex flex-col"
               style={{
                 background: 'rgba(16, 185, 129, 0.08)',
                 backdropFilter: 'blur(20px)',
@@ -513,7 +594,7 @@ export default function HidrocrinLanding() {
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6 flex-1 flex flex-col">
                 <div className="space-y-3">
                   <label htmlFor="nombre" className="text-sm font-semibold text-foreground block">
                     Nombre Completo
@@ -561,7 +642,7 @@ export default function HidrocrinLanding() {
                 <Button 
                   type="submit" 
                   size="lg" 
-                  className="w-full h-14 bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white font-semibold text-lg rounded-xl shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-300"
+                  className="w-full h-14 bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white font-semibold text-lg rounded-xl shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-300 mt-auto"
                 >
                   <Mail className="mr-3 h-5 w-5" />
                   Enviar Mensaje
@@ -570,25 +651,43 @@ export default function HidrocrinLanding() {
             </div>
 
             {/* Información de Contacto */}
-            <div className="space-y-8">
-              <div 
-                className="p-8 rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl"
-                style={{
-                  background: 'rgba(16, 185, 129, 0.08)',
-                  backdropFilter: 'blur(20px)',
-                }}
-              >
-                <h3 className="text-2xl font-bold text-foreground mb-6">Información de Contacto</h3>
+            <div 
+              className="p-10 rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl h-full flex flex-col"
+              style={{
+                background: 'rgba(16, 185, 129, 0.08)',
+                backdropFilter: 'blur(20px)',
+              }}
+            >
+                <h3 className="text-2xl font-bold text-foreground mb-6">Conoce más y apóyanos en</h3>
                 
-                <div className="space-y-6">
+                <div className="space-y-6 flex-1">
+                  <div className="flex items-start gap-4 p-4 rounded-2xl bg-white/30 hover:bg-white/40 transition-all duration-300">
+                    <div className="h-12 w-12 bg-emerald-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Instagram className="h-6 w-6 text-emerald-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1 text-lg">Instagram</h4>
+                      <p className="text-muted-foreground">hidrrcrin</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4 p-4 rounded-2xl bg-white/30 hover:bg-white/40 transition-all duration-300">
+                    <div className="h-12 w-12 bg-emerald-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Facebook className="h-6 w-6 text-emerald-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1 text-lg">Facebook</h4>
+                      <p className="text-muted-foreground">Hidrocrin Dos Mundos</p>
+                    </div>
+                  </div>
+                  
                   <div className="flex items-start gap-4 p-4 rounded-2xl bg-white/30 hover:bg-white/40 transition-all duration-300">
                     <div className="h-12 w-12 bg-emerald-100 rounded-xl flex items-center justify-center flex-shrink-0">
                       <Mail className="h-6 w-6 text-emerald-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-foreground mb-1 text-lg">Email</h4>
-                      <p className="text-muted-foreground">contacto@hidrocrin.com</p>
-                      <p className="text-sm text-emerald-600 mt-1">Respuesta en 24 horas</p>
+                      <h4 className="font-semibold text-foreground mb-1 text-lg">Correo</h4>
+                      <p className="text-muted-foreground">hidrocrin.dosmundo@gmail.com</p>
                     </div>
                   </div>
                   
@@ -597,53 +696,21 @@ export default function HidrocrinLanding() {
                       <Phone className="h-6 w-6 text-emerald-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-foreground mb-1 text-lg">Teléfono</h4>
-                      <p className="text-muted-foreground">+56 9 89649463</p>
-                      <p className="text-sm text-emerald-600 mt-1">Lunes a Viernes 9:00 - 18:00</p>
+                      <h4 className="font-semibold text-foreground mb-1 text-lg">Contáctanos</h4>
+                      <p className="text-muted-foreground">975266692 – 956113831</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-4 p-4 rounded-2xl bg-white/30 hover:bg-white/40 transition-all duration-300">
                     <div className="h-12 w-12 bg-emerald-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <MapPin className="h-6 w-6 text-emerald-600" />
+                      <Users className="h-6 w-6 text-emerald-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-foreground mb-1 text-lg">Ubicación</h4>
-                      <p className="text-muted-foreground">Chile</p>
-                      <p className="text-sm text-emerald-600 mt-1">Servicio a nivel nacional</p>
+                      <h4 className="font-semibold text-foreground mb-1 text-lg">Equipo</h4>
+                      <p className="text-muted-foreground">Carolina Velasquez - Viviana González</p>
                     </div>
                   </div>
                 </div>
-              </div>
-
-              {/* Card de Beneficios */}
-              <div 
-                className="p-8 rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl"
-                style={{
-                  background: 'rgba(16, 185, 129, 0.08)',
-                  backdropFilter: 'blur(20px)',
-                }}
-              >
-                <h3 className="text-xl font-bold text-foreground mb-4">¿Por qué Contactarnos?</h3>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-emerald-600 flex-shrink-0" />
-                    <span className="text-muted-foreground">Asesoría personalizada en agricultura sostenible</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-emerald-600 flex-shrink-0" />
-                    <span className="text-muted-foreground">Programas de reciclaje para peluquerías</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-emerald-600 flex-shrink-0" />
-                    <span className="text-muted-foreground">Colaboraciones y alianzas estratégicas</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-emerald-600 flex-shrink-0" />
-                    <span className="text-muted-foreground">Soporte técnico y seguimiento</span>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
