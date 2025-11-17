@@ -7,12 +7,18 @@ export default function Historia() {
     // Hacer scroll al inicio de la página cuando se carga
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [])
-  // TODO: Agregar imágenes reales del cliente aquí
-  // Estructura sugerida para las imágenes:
-  // const historiaImages = [
-  //   { src: '/assets/images/historia-1.jpg', alt: 'Descripción de la imagen', description: 'Texto descriptivo' },
-  //   { src: '/assets/images/historia-2.jpg', alt: 'Descripción de la imagen', description: 'Texto descriptivo' },
-  // ]
+  const historiaImages = [
+    { 
+      src: '/assets/images/WhatsApp Image 2025-11-16 at 09.12.36_5c08015f.jpg', 
+      alt: 'Trabajo en invernadero con plantas', 
+      description: 'Equipo trabajando en el cuidado de plantas en invernadero' 
+    },
+    { 
+      src: '/assets/images/WhatsApp Image 2025-11-16 at 09.12.36_c57fb056.jpg', 
+      alt: 'Trabajo en campo y jardín', 
+      description: 'Actividades de campo y trabajo colaborativo en jardín' 
+    },
+  ]
 
   const eventos = [
     {
@@ -229,37 +235,29 @@ export default function Historia() {
             </p>
           </div>
 
-          {/* TODO: Agregar imágenes reales del cliente aquí */}
-          {/* 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-6">
             {historiaImages.map((image, index) => (
-              <div key={index} className="relative aspect-square rounded-2xl overflow-hidden group">
+              <div 
+                key={index} 
+                className="relative aspect-[4/3] rounded-2xl overflow-hidden group cursor-pointer"
+                style={{
+                  background: 'rgba(16, 185, 129, 0.08)',
+                  backdropFilter: 'blur(20px)',
+                }}
+              >
                 <img 
                   src={image.src} 
                   alt={image.alt}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                    <p className="font-semibold">{image.description}</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                    <p className="font-semibold text-lg">{image.description}</p>
                   </div>
                 </div>
+                <div className="absolute inset-0 border border-emerald-200/30 rounded-2xl pointer-events-none"></div>
               </div>
             ))}
-          </div>
-          */}
-
-          {/* Placeholder mientras se agregan imágenes */}
-          <div 
-            className="p-12 rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl text-center"
-            style={{
-              background: 'rgba(16, 185, 129, 0.08)',
-              backdropFilter: 'blur(20px)',
-            }}
-          >
-            <p className="text-muted-foreground">
-              Las imágenes de nuestra historia se agregarán próximamente
-            </p>
           </div>
         </div>
       </section>
