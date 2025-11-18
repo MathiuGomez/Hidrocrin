@@ -56,7 +56,7 @@ export default function Historia() {
   return (
     <PageLayout>
       {/* Hero Section */}
-      <section className="pt-32 pb-2 px-4 relative overflow-hidden">
+      <section className="pt-24 sm:pt-28 lg:pt-32 pb-2 px-4 relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 left-10 w-32 h-32 bg-emerald-300 rounded-full blur-3xl"></div>
@@ -65,14 +65,14 @@ export default function Historia() {
         </div>
         
         <div className="container mx-auto max-w-4xl relative z-10">
-          <div className="text-center mb-8">
-            <div className="inline-block px-4 py-2 bg-emerald-100 text-emerald-800 rounded-full text-sm font-medium mb-4">
+          <div className="text-center mb-6 sm:mb-8">
+            <div className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-emerald-100 text-emerald-800 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
               Nuestra Historia
             </div>
-            <h1 className="text-5xl lg:text-6xl font-bold text-foreground mb-4 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-3 sm:mb-4 leading-tight px-4">
               Cómo Nació <span className="text-emerald-600">Hidrocrin</span>
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4">
               Una idea innovadora que transforma residuos en soluciones para la agricultura
             </p>
           </div>
@@ -83,14 +83,14 @@ export default function Historia() {
       <section className="pt-2 pb-2 px-4">
         <div className="container mx-auto max-w-4xl">
           <div 
-            className="p-8 rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl mb-2"
+            className="p-5 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl mb-2"
             style={{
               background: 'rgba(16, 185, 129, 0.08)',
               backdropFilter: 'blur(20px)',
             }}
           >
-            <h2 className="text-3xl font-bold text-foreground mb-4">El Origen de la Idea</h2>
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4">El Origen de la Idea</h2>
+            <div className="space-y-3 sm:space-y-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
               <p>
                 Hidrocrin nació como una idea innovadora dentro de la carrera de Peluquería del Instituto AIEP en Puerto Montt. 
                 Todo comenzó con una pregunta sencilla pero poderosa: <strong className="text-foreground">¿qué pasaría si el cabello 
@@ -110,14 +110,14 @@ export default function Historia() {
       <section className="pt-0 pb-2 px-4 bg-muted/30">
         <div className="container mx-auto max-w-4xl">
           <div 
-            className="p-8 rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl mb-2"
+            className="p-5 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl mb-2"
             style={{
               background: 'rgba(16, 185, 129, 0.08)',
               backdropFilter: 'blur(20px)',
             }}
           >
-            <h2 className="text-3xl font-bold text-foreground mb-4">La Investigación del Cabello Humano</h2>
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4">La Investigación del Cabello Humano</h2>
+            <div className="space-y-3 sm:space-y-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
               <p>
                 De esa investigación surgió el proyecto Hidrocrin, que une dos mundos aparentemente opuestos: 
                 la peluquería y la agricultura. Lo que antes era un residuo sin valor, ahora se transforma en 
@@ -138,20 +138,20 @@ export default function Historia() {
       {/* Misión y Visión Section */}
       <section className="pt-0 pb-4 px-4">
         <div className="container mx-auto max-w-5xl">
-          <div className="grid md:grid-cols-2 gap-3">
+          <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
             {/* Misión */}
             <div 
-              className="p-8 rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl"
+              className="p-5 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl"
               style={{
                 background: 'rgba(16, 185, 129, 0.08)',
                 backdropFilter: 'blur(20px)',
               }}
             >
-              <div className="h-16 w-16 bg-emerald-100 rounded-full flex items-center justify-center mb-4">
-                <Leaf className="h-8 w-8 text-emerald-600" />
+              <div className="h-12 w-12 sm:h-16 sm:w-16 bg-emerald-100 rounded-full flex items-center justify-center mb-3 sm:mb-4">
+                <Leaf className="h-6 w-6 sm:h-8 sm:w-8 text-emerald-600" />
               </div>
-              <h2 className="text-3xl font-bold text-foreground mb-4">Nuestra Misión</h2>
-              <p className="text-muted-foreground leading-relaxed">
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4">Nuestra Misión</h2>
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                 Darle una segunda vida al cabello humano, transformándolo en soluciones ecológicas que contribuyan 
                 a la retención de humedad en suelos agrícolas, especialmente en zonas afectadas por la sequía. 
                 Buscamos reducir residuos, apoyar a pequeños agricultores y promover prácticas sustentables, uniendo 
@@ -161,17 +161,17 @@ export default function Historia() {
 
             {/* Visión */}
             <div 
-              className="p-8 rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl"
+              className="p-5 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl"
               style={{
                 background: 'rgba(16, 185, 129, 0.08)',
                 backdropFilter: 'blur(20px)',
               }}
             >
-              <div className="h-16 w-16 bg-teal-100 rounded-full flex items-center justify-center mb-4">
-                <CheckCircle2 className="h-8 w-8 text-teal-600" />
+              <div className="h-12 w-12 sm:h-16 sm:w-16 bg-teal-100 rounded-full flex items-center justify-center mb-3 sm:mb-4">
+                <CheckCircle2 className="h-6 w-6 sm:h-8 sm:w-8 text-teal-600" />
               </div>
-              <h2 className="text-3xl font-bold text-foreground mb-4">Nuestra Visión</h2>
-              <p className="text-muted-foreground leading-relaxed">
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4">Nuestra Visión</h2>
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                 Convertir a Hidrocrin en un referente de innovación social y sustentabilidad, demostrando que los 
                 residuos pueden transformarse en recursos valiosos. Aspiramos a expandir nuestro impacto más allá 
                 de la Región de Los Lagos, inspirando a otras comunidades a replicar este modelo y construir un 
@@ -183,39 +183,39 @@ export default function Historia() {
       </section>
 
       {/* Eventos Section */}
-      <section className="pt-4 pb-8 px-4 bg-muted/30">
+      <section className="pt-4 pb-6 sm:pb-8 px-4 bg-muted/30">
         <div className="container mx-auto max-w-5xl">
-          <div className="text-center mb-6">
-            <h2 className="text-4xl font-bold text-foreground mb-3">Nuestros Eventos y Participaciones</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <div className="text-center mb-5 sm:mb-6">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-2 sm:mb-3 px-4">Nuestros Eventos y Participaciones</h2>
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
               Compartiendo conocimiento y expandiendo nuestro impacto
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
             {eventos.map((evento, index) => {
               const Icon = evento.icon
               return (
                 <div
                   key={index}
-                  className="p-8 rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl hover:shadow-2xl transition-all duration-300"
+                  className="p-5 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl hover:shadow-2xl transition-all duration-300"
                   style={{
                     background: 'rgba(16, 185, 129, 0.08)',
                     backdropFilter: 'blur(20px)',
                   }}
                 >
-                  <div className="h-12 w-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-4">
-                    <Icon className="h-6 w-6 text-emerald-600" />
+                  <div className="h-10 w-10 sm:h-12 sm:w-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                    <Icon className="h-5 w-5 sm:h-6 sm:w-6 text-emerald-600" />
                   </div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <Calendar className="h-4 w-4 text-emerald-600" />
-                    <span className="text-sm font-semibold text-emerald-600 uppercase tracking-wide">
+                  <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                    <Calendar className="h-3 w-3 sm:h-4 sm:w-4 text-emerald-600" />
+                    <span className="text-xs sm:text-sm font-semibold text-emerald-600 uppercase tracking-wide">
                       {evento.tipo}
                     </span>
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">{evento.lugar}</h3>
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <MapPin className="h-4 w-4" />
+                  <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">{evento.lugar}</h3>
+                  <div className="flex items-center gap-2 text-sm sm:text-base text-muted-foreground">
+                    <MapPin className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
                     <span>{evento.ubicacion}</span>
                   </div>
                 </div>
@@ -226,20 +226,20 @@ export default function Historia() {
       </section>
 
       {/* Galería Section - Preparada para imágenes */}
-      <section className="pt-4 pb-8 px-4">
+      <section className="pt-4 pb-6 sm:pb-8 px-4">
         <div className="container mx-auto max-w-5xl">
-          <div className="text-center mb-6">
-            <h2 className="text-4xl font-bold text-foreground mb-3">Imágenes de Nuestra Historia</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <div className="text-center mb-5 sm:mb-6">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-2 sm:mb-3 px-4">Imágenes de Nuestra Historia</h2>
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
               Momentos que han marcado nuestro camino
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
             {historiaImages.map((image, index) => (
               <div 
                 key={index} 
-                className="relative aspect-[4/3] rounded-2xl overflow-hidden group cursor-pointer"
+                className="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer"
                 style={{
                   background: 'rgba(16, 185, 129, 0.08)',
                   backdropFilter: 'blur(20px)',
@@ -251,11 +251,11 @@ export default function Historia() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                    <p className="font-semibold text-lg">{image.description}</p>
+                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white">
+                    <p className="font-semibold text-sm sm:text-base lg:text-lg">{image.description}</p>
                   </div>
                 </div>
-                <div className="absolute inset-0 border border-emerald-200/30 rounded-2xl pointer-events-none"></div>
+                <div className="absolute inset-0 border border-emerald-200/30 rounded-xl sm:rounded-2xl pointer-events-none"></div>
               </div>
             ))}
           </div>

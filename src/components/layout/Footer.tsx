@@ -1,6 +1,5 @@
 import { Link, useNavigate, useLocation } from "react-router-dom"
-import { Mail, Phone, MapPin, ArrowRight, Leaf } from "lucide-react"
-import { Button } from "../ui/button"
+import { Mail, Phone, MapPin, Leaf } from "lucide-react"
 import { IMAGES, IMAGE_ALTS } from "../../assets/images"
 
 export default function Footer() {
@@ -28,7 +27,7 @@ export default function Footer() {
     }
   };
   return (
-    <footer className="relative py-12 px-4 overflow-hidden">
+    <footer className="relative py-8 sm:py-10 lg:py-12 px-4 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-10 left-10 w-32 h-32 bg-emerald-300 rounded-full blur-3xl"></div>
@@ -39,28 +38,28 @@ export default function Footer() {
       <div className="container mx-auto relative z-10">
         {/* Main Footer Content */}
         <div 
-          className="rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl p-12 mb-8"
+          className="rounded-2xl sm:rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl p-6 sm:p-8 lg:p-12 mb-6 sm:mb-8"
           style={{
             background: 'rgba(16, 185, 129, 0.08)',
             backdropFilter: 'blur(20px)',
           }}
         >
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
             {/* Brand Section */}
-            <div className="lg:col-span-1 md:col-span-2 space-y-6">
-              <div className="flex items-center gap-4">
+            <div className="lg:col-span-1 md:col-span-2 space-y-4 sm:space-y-6">
+              <div className="flex items-center gap-3 sm:gap-4">
                 <img 
                   src={IMAGES.LOGO} 
                   alt={IMAGE_ALTS.LOGO} 
-                  className="h-16 w-16 object-contain"
+                  className="h-12 w-12 sm:h-16 sm:w-16 object-contain"
                 />
-                <span className="text-2xl font-bold text-foreground">Hidrocrin</span>
+                <span className="text-xl sm:text-2xl font-bold text-foreground">Hidrocrin</span>
               </div>
-              <p className="text-muted-foreground leading-relaxed text-base max-w-sm">
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-sm">
                 Transformando residuos en soluciones sostenibles para la agricultura del futuro. 
                 Innovación en economía circular para un mundo más verde.
               </p>
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3 sm:gap-4">
                 <a 
                   href="mailto:hidrocrin.dosmundo@gmail.com"
                   className="h-10 w-10 bg-emerald-100 rounded-lg flex items-center justify-center hover:bg-emerald-200 transition-colors cursor-pointer"
@@ -82,9 +81,9 @@ export default function Footer() {
             </div>
 
             {/* Navigation Links */}
-            <div className="space-y-6">
-              <h4 className="text-lg font-bold text-foreground mb-6">Navegación</h4>
-              <ul className="space-y-4">
+            <div className="space-y-4 sm:space-y-6">
+              <h4 className="text-base sm:text-lg font-bold text-foreground mb-4 sm:mb-6">Navegación</h4>
+              <ul className="space-y-3 sm:space-y-4">
                 <li>
                   <Link to="/" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
                     <div className="h-2 w-2 bg-emerald-400 rounded-full group-hover:bg-emerald-600 transition-colors"></div>
@@ -107,9 +106,9 @@ export default function Footer() {
             </div>
 
             {/* Project Links */}
-            <div className="space-y-6">
-              <h4 className="text-lg font-bold text-foreground mb-6">Proyecto</h4>
-              <ul className="space-y-4">
+            <div className="space-y-4 sm:space-y-6">
+              <h4 className="text-base sm:text-lg font-bold text-foreground mb-4 sm:mb-6">Proyecto</h4>
+              <ul className="space-y-3 sm:space-y-4">
                 <li>
                   <Link to="/historia" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
                     <div className="h-2 w-2 bg-teal-400 rounded-full group-hover:bg-teal-600 transition-colors"></div>
@@ -136,9 +135,9 @@ export default function Footer() {
             </div>
 
             {/* Legal */}
-            <div className="space-y-6">
-              <h4 className="text-lg font-bold text-foreground mb-6">Legal</h4>
-              <ul className="space-y-4">
+            <div className="space-y-4 sm:space-y-6">
+              <h4 className="text-base sm:text-lg font-bold text-foreground mb-4 sm:mb-6">Legal</h4>
+              <ul className="space-y-3 sm:space-y-4">
                 <li>
                   <Link to="/terminos-y-condiciones" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
                     <div className="h-2 w-2 bg-emerald-400 rounded-full group-hover:bg-emerald-600 transition-colors"></div>
@@ -152,22 +151,22 @@ export default function Footer() {
 
         {/* Bottom Footer */}
         <div 
-          className="rounded-2xl backdrop-blur-xl border border-emerald-200/20 shadow-xl p-8 text-center"
+          className="rounded-xl sm:rounded-2xl backdrop-blur-xl border border-emerald-200/20 shadow-xl p-5 sm:p-6 lg:p-8 text-center"
           style={{
             background: 'rgba(16, 185, 129, 0.05)',
             backdropFilter: 'blur(15px)',
           }}
         >
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-muted-foreground text-base">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4">
+            <p className="text-muted-foreground text-sm sm:text-base">
               © 2025 Hidrocrin. Todos los derechos reservados.
             </p>
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
               <span>Hecho con</span>
-              <Leaf className="h-4 w-4 text-emerald-600" />
+              <Leaf className="h-3 w-3 sm:h-4 sm:w-4 text-emerald-600" />
               <span>para un futuro sostenible</span>
             </div>
-            <p className="text-sm text-emerald-600 font-medium">
+            <p className="text-xs sm:text-sm text-emerald-600 font-medium">
               Proyecto de Economía Circular
             </p>
           </div>

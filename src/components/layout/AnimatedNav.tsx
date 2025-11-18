@@ -235,7 +235,7 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({
     // Manejar enlaces tipo "/#hash" que combinan ruta y hash
     if (href.includes('/#')) {
       e.preventDefault();
-      const [path, hash] = href.split('/#');
+      const [, hash] = href.split('/#');
       const elementId = hash;
       
       // Si ya estamos en la página principal, solo hacer scroll
