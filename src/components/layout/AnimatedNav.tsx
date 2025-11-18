@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { IMAGES, IMAGE_ALTS } from '../../assets/images';
 
@@ -30,6 +30,7 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({
   pillTextColor = '#10b981',
   initialLoadAnimation = true
 }) => {
+  const navigate = useNavigate();
   const resolvedPillTextColor = pillTextColor ?? baseColor;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const circleRefs = useRef<(HTMLSpanElement | null)[]>([]);
@@ -231,6 +232,31 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({
   };
 
   const handleNavClick = (href: string, e: React.MouseEvent) => {
+    // Manejar enlaces tipo "/#hash" que combinan ruta y hash
+    if (href.includes('/#')) {
+      e.preventDefault();
+      const [path, hash] = href.split('/#');
+      const elementId = hash;
+      
+      // Si ya estamos en la página principal, solo hacer scroll
+      if (window.location.pathname === '/') {
+        const element = document.getElementById(elementId);
+        if (element) {
+          const headerOffset = 120;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          window.scrollTo({
+            top: Math.max(0, offsetPosition),
+            behavior: 'smooth'
+          });
+        }
+      } else {
+        // Si estamos en otra página, navegar a la página principal con state
+        navigate('/', { state: { scrollToContact: true } });
+      }
+      return;
+    }
+    
     if (href.startsWith('#')) {
       e.preventDefault();
       // Si es un hash (sección en la misma página)
@@ -248,7 +274,7 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({
         });
       }
     }
-    // Si es una ruta, Link de react-router se encarga automáticamente
+    // Si es una ruta normal, Link de react-router se encarga automáticamente
   };
 
   const toggleMobileMenu = () => {
@@ -333,26 +359,28 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({
               onMouseEnter={handleLogoEnter}
               onMouseLeave={handleLogoLeave}
             >
-              <Link
-                to="/"
-                aria-label="Home"
+              <a
+                href="#inicio"
+                aria-label="Inicio"
                 className="inline-flex items-center justify-center"
+                onClick={(e) => handleNavClick('#inicio', e)}
               >
                 <img 
                   src={IMAGES.LOGO} 
                   alt={IMAGE_ALTS.LOGO} 
-                  className="h-10 w-10 object-contain"
+                  className="h-10 w-10 object-contain cursor-pointer"
                 />
-              </Link>
+              </a>
             </div>
-            <Link
+            <a
               ref={textRef}
-              to="/"
+              href="#inicio"
               className="absolute left-full ml-3 top-1/2 -translate-y-1/2 text-xl font-bold text-emerald-600 opacity-0 whitespace-nowrap hidden sm:block cursor-pointer"
               onMouseEnter={handleTextEnter}
+              onClick={(e) => handleNavClick('#inicio', e)}
             >
               Hidrocrin
-            </Link>
+            </a>
           </div>
         </div>
 
@@ -415,7 +443,7 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({
               const basePillClasses =
                 'relative overflow-hidden inline-flex items-center justify-center h-full no-underline rounded-full box-border font-semibold text-[16px] leading-[0] uppercase tracking-[0.2px] whitespace-nowrap cursor-pointer px-0';
 
-              const isHash = item.href.startsWith('#');
+              const isHash = item.href.startsWith('#') || item.href.includes('/#');
               return (
                 <li key={item.href} role="none" className="flex h-full">
                   {isHash ? (
@@ -503,7 +531,7 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({
             const linkClasses =
               'block py-3 px-4 text-[16px] font-medium rounded-[50px] transition-all duration-200 ease-[cubic-bezier(0.25,0.1,0.25,1)]';
 
-            const isHash = item.href.startsWith('#');
+            const isHash = item.href.startsWith('#') || item.href.includes('/#');
             return (
               <li key={item.href}>
                 {isHash ? (

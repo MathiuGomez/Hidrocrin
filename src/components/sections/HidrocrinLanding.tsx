@@ -67,8 +67,8 @@ export default function HidrocrinLanding() {
   const navItems = [
     { href: "#inicio", label: "Inicio" },
     { href: "#solucion", label: "Solución" },
-    { href: "#proceso", label: "Proceso" },
     { href: "#beneficios", label: "Beneficios" },
+    { href: "#proceso", label: "Proceso" },
     { href: "#contacto-formulario", label: "Contacto" }
   ]
 
@@ -119,13 +119,43 @@ export default function HidrocrinLanding() {
                 suelo, combatiendo la sequía y promoviendo la economía circular.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <a href="#contacto-formulario">
+                <a 
+                  href="#contacto-formulario"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const element = document.getElementById("contacto-formulario");
+                    if (element) {
+                      const headerOffset = 120;
+                      const elementPosition = element.getBoundingClientRect().top;
+                      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                      window.scrollTo({
+                        top: Math.max(0, offsetPosition),
+                        behavior: "smooth"
+                      });
+                    }
+                  }}
+                >
                   <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white w-full sm:w-auto">
                     Conoce Más
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </a>
-                <a href="#proceso">
+                <a 
+                  href="#proceso"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const element = document.getElementById("proceso");
+                    if (element) {
+                      const headerOffset = 120;
+                      const elementPosition = element.getBoundingClientRect().top;
+                      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                      window.scrollTo({
+                        top: Math.max(0, offsetPosition),
+                        behavior: "smooth"
+                      });
+                    }
+                  }}
+                >
                   <Button size="lg" variant="outline" className="w-full sm:w-auto bg-transparent">
                     Ver Proceso
                   </Button>
@@ -750,15 +780,63 @@ export default function HidrocrinLanding() {
                   Innovación en economía circular para un mundo más verde.
                 </p>
                 <div className="flex items-center gap-4">
-                  <div className="h-10 w-10 bg-emerald-100 rounded-lg flex items-center justify-center hover:bg-emerald-200 transition-colors cursor-pointer">
+                  <a 
+                    href="#contacto-formulario"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const element = document.getElementById("contacto-formulario");
+                      if (element) {
+                        const headerOffset = 120;
+                        const elementPosition = element.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        window.scrollTo({
+                          top: Math.max(0, offsetPosition),
+                          behavior: "smooth"
+                        });
+                      }
+                    }}
+                    className="h-10 w-10 bg-emerald-100 rounded-lg flex items-center justify-center hover:bg-emerald-200 transition-colors cursor-pointer"
+                  >
                     <Mail className="h-5 w-5 text-emerald-600" />
-                  </div>
-                  <div className="h-10 w-10 bg-teal-100 rounded-lg flex items-center justify-center hover:bg-teal-200 transition-colors cursor-pointer">
+                  </a>
+                  <a 
+                    href="#contacto-formulario"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const element = document.getElementById("contacto-formulario");
+                      if (element) {
+                        const headerOffset = 120;
+                        const elementPosition = element.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        window.scrollTo({
+                          top: Math.max(0, offsetPosition),
+                          behavior: "smooth"
+                        });
+                      }
+                    }}
+                    className="h-10 w-10 bg-teal-100 rounded-lg flex items-center justify-center hover:bg-teal-200 transition-colors cursor-pointer"
+                  >
                     <Phone className="h-5 w-5 text-teal-600" />
-                  </div>
-                  <div className="h-10 w-10 bg-emerald-100 rounded-lg flex items-center justify-center hover:bg-emerald-200 transition-colors cursor-pointer">
+                  </a>
+                  <a 
+                    href="#contacto-formulario"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const element = document.getElementById("contacto-formulario");
+                      if (element) {
+                        const headerOffset = 120;
+                        const elementPosition = element.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        window.scrollTo({
+                          top: Math.max(0, offsetPosition),
+                          behavior: "smooth"
+                        });
+                      }
+                    }}
+                    className="h-10 w-10 bg-emerald-100 rounded-lg flex items-center justify-center hover:bg-emerald-200 transition-colors cursor-pointer"
+                  >
                     <MapPin className="h-5 w-5 text-emerald-600" />
-                  </div>
+                  </a>
                 </div>
               </div>
 
@@ -767,25 +845,89 @@ export default function HidrocrinLanding() {
                 <h4 className="text-lg font-bold text-foreground mb-6">Navegación</h4>
                 <ul className="space-y-4">
                   <li>
-                    <a href="#problema" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
+                    <a 
+                      href="#problema"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const element = document.getElementById("problema");
+                        if (element) {
+                          const headerOffset = 100;
+                          const elementPosition = element.getBoundingClientRect().top;
+                          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                          window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                          });
+                        }
+                      }}
+                      className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300"
+                    >
                       <div className="h-2 w-2 bg-emerald-400 rounded-full group-hover:bg-emerald-600 transition-colors"></div>
                       <span className="text-base">El Problema</span>
                     </a>
                   </li>
                   <li>
-                    <a href="#solucion" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
+                    <a 
+                      href="#solucion"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const element = document.getElementById("solucion");
+                        if (element) {
+                          const headerOffset = 100;
+                          const elementPosition = element.getBoundingClientRect().top;
+                          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                          window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                          });
+                        }
+                      }}
+                      className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300"
+                    >
                       <div className="h-2 w-2 bg-emerald-400 rounded-full group-hover:bg-emerald-600 transition-colors"></div>
                       <span className="text-base">Solución</span>
                     </a>
                   </li>
                   <li>
-                    <a href="#beneficios" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
+                    <a 
+                      href="#beneficios"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const element = document.getElementById("beneficios");
+                        if (element) {
+                          const headerOffset = 100;
+                          const elementPosition = element.getBoundingClientRect().top;
+                          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                          window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                          });
+                        }
+                      }}
+                      className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300"
+                    >
                       <div className="h-2 w-2 bg-emerald-400 rounded-full group-hover:bg-emerald-600 transition-colors"></div>
                       <span className="text-base">Beneficios</span>
                     </a>
                   </li>
                   <li>
-                    <a href="#proceso" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
+                    <a 
+                      href="#proceso"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const element = document.getElementById("proceso");
+                        if (element) {
+                          const headerOffset = 100;
+                          const elementPosition = element.getBoundingClientRect().top;
+                          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                          window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                          });
+                        }
+                      }}
+                      className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300"
+                    >
                       <div className="h-2 w-2 bg-emerald-400 rounded-full group-hover:bg-emerald-600 transition-colors"></div>
                       <span className="text-base">Proceso</span>
                     </a>
@@ -798,13 +940,35 @@ export default function HidrocrinLanding() {
                 <h4 className="text-lg font-bold text-foreground mb-6">Proyecto</h4>
                 <ul className="space-y-4">
                   <li>
+                    <Link to="/historia" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
+                      <div className="h-2 w-2 bg-teal-400 rounded-full group-hover:bg-teal-600 transition-colors"></div>
+                      <span className="text-base">Historia</span>
+                    </Link>
+                  </li>
+                  <li>
                     <Link to="/sobre-nosotros" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
                       <div className="h-2 w-2 bg-teal-400 rounded-full group-hover:bg-teal-600 transition-colors"></div>
                       <span className="text-base">Sobre Nosotros</span>
                     </Link>
                   </li>
                   <li>
-                    <a href="#contacto-formulario" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
+                    <a 
+                      href="#contacto-formulario"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const element = document.getElementById("contacto-formulario");
+                        if (element) {
+                          const headerOffset = 120;
+                          const elementPosition = element.getBoundingClientRect().top;
+                          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                          window.scrollTo({
+                            top: Math.max(0, offsetPosition),
+                            behavior: "smooth"
+                          });
+                        }
+                      }}
+                      className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300 cursor-pointer"
+                    >
                       <div className="h-2 w-2 bg-teal-400 rounded-full group-hover:bg-teal-600 transition-colors"></div>
                       <span className="text-base">Contacto</span>
                     </a>
@@ -812,10 +976,10 @@ export default function HidrocrinLanding() {
                 </ul>
               </div>
 
-              {/* Legal & Newsletter */}
+              {/* Legal */}
               <div className="space-y-6">
                 <h4 className="text-lg font-bold text-foreground mb-6">Legal</h4>
-                <ul className="space-y-4 mb-8">
+                <ul className="space-y-4">
                   <li>
                     <Link to="/terminos-y-condiciones" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
                       <div className="h-2 w-2 bg-emerald-400 rounded-full group-hover:bg-emerald-600 transition-colors"></div>
@@ -823,22 +987,6 @@ export default function HidrocrinLanding() {
                     </Link>
                   </li>
                 </ul>
-                
-                {/* Newsletter */}
-                <div className="p-4 bg-white/20 rounded-2xl backdrop-blur-sm border border-emerald-200/20">
-                  <h5 className="font-semibold text-foreground mb-3">Mantente al día</h5>
-                  <p className="text-sm text-muted-foreground mb-3">Recibe las últimas novedades sobre Hidrocrin</p>
-                  <div className="flex gap-2">
-                    <input 
-                      type="email" 
-                      placeholder="tu@email.com" 
-                      className="flex-1 px-3 py-2 bg-white/50 border border-emerald-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-400/20 focus:border-emerald-400"
-                    />
-                    <Button size="sm" className="bg-emerald-600 hover:bg-emerald-700 text-white px-4">
-                      <ArrowRight className="h-4 w-4" />
-                    </Button>
-                  </div>
-                </div>
               </div>
             </div>
           </div>

@@ -1,9 +1,32 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate, useLocation } from "react-router-dom"
 import { Mail, Phone, MapPin, ArrowRight, Leaf } from "lucide-react"
 import { Button } from "../ui/button"
 import { IMAGES, IMAGE_ALTS } from "../../assets/images"
 
 export default function Footer() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleContactClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    // Si ya estamos en la página principal, hacer scroll
+    if (location.pathname === '/') {
+      const element = document.getElementById("contacto-formulario");
+      if (element) {
+        const headerOffset = 120;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+          top: Math.max(0, offsetPosition),
+          behavior: "smooth"
+        });
+      }
+    } else {
+      // Si estamos en otra página, navegar con state
+      navigate('/', { state: { scrollToContact: true } });
+    }
+  };
   return (
     <footer className="relative py-12 px-4 overflow-hidden">
       {/* Background Pattern */}
@@ -88,24 +111,34 @@ export default function Footer() {
               <h4 className="text-lg font-bold text-foreground mb-6">Proyecto</h4>
               <ul className="space-y-4">
                 <li>
+                  <Link to="/historia" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
+                    <div className="h-2 w-2 bg-teal-400 rounded-full group-hover:bg-teal-600 transition-colors"></div>
+                    <span className="text-base">Historia</span>
+                  </Link>
+                </li>
+                <li>
                   <Link to="/sobre-nosotros" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
                     <div className="h-2 w-2 bg-teal-400 rounded-full group-hover:bg-teal-600 transition-colors"></div>
                     <span className="text-base">Sobre Nosotros</span>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/#contacto-formulario" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
+                  <a 
+                    href="/#contacto-formulario"
+                    onClick={handleContactClick}
+                    className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300 cursor-pointer"
+                  >
                     <div className="h-2 w-2 bg-teal-400 rounded-full group-hover:bg-teal-600 transition-colors"></div>
                     <span className="text-base">Contacto</span>
-                  </Link>
+                  </a>
                 </li>
               </ul>
             </div>
 
-            {/* Legal & Newsletter */}
+            {/* Legal */}
             <div className="space-y-6">
               <h4 className="text-lg font-bold text-foreground mb-6">Legal</h4>
-              <ul className="space-y-4 mb-8">
+              <ul className="space-y-4">
                 <li>
                   <Link to="/terminos-y-condiciones" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300">
                     <div className="h-2 w-2 bg-emerald-400 rounded-full group-hover:bg-emerald-600 transition-colors"></div>
@@ -113,22 +146,6 @@ export default function Footer() {
                   </Link>
                 </li>
               </ul>
-              
-              {/* Newsletter */}
-              <div className="p-4 bg-white/20 rounded-2xl backdrop-blur-sm border border-emerald-200/20">
-                <h5 className="font-semibold text-foreground mb-3">Mantente al día</h5>
-                <p className="text-sm text-muted-foreground mb-3">Recibe las últimas novedades sobre Hidrocrin</p>
-                <div className="flex gap-2">
-                  <input 
-                    type="email" 
-                    placeholder="tu@email.com" 
-                    className="flex-1 px-3 py-2 bg-white/50 border border-emerald-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-400/20 focus:border-emerald-400"
-                  />
-                  <Button size="sm" className="bg-emerald-600 hover:bg-emerald-700 text-white px-4">
-                    <ArrowRight className="h-4 w-4" />
-                  </Button>
-                </div>
-              </div>
             </div>
           </div>
         </div>
