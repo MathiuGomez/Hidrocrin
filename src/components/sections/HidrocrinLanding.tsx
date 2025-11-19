@@ -63,9 +63,14 @@ export default function HidrocrinLanding() {
       }
     } else {
       // Si no hay instrucción de scroll, asegurar que iniciamos en la parte superior
-      window.scrollTo(0, 0)
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" })
     }
   }, [location.state])
+
+  // Efecto adicional para asegurar que siempre iniciamos en la parte superior al montar el componente
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" })
+  }, [])
 
   const navItems = [
     { href: "#inicio", label: "Inicio" },
