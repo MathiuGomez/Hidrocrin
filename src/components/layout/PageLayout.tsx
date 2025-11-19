@@ -21,11 +21,6 @@ export default function PageLayout({
       {/* Animated Navigation */}
       <AnimatedNav 
         items={navItems}
-        baseColor="#ffffff"
-        pillColor="#ffffff"
-        hoveredPillTextColor="#10b981"
-        pillTextColor="#10b981"
-        initialLoadAnimation={true}
       />
       
       {/* Page Content */}
