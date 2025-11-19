@@ -12,224 +12,23 @@ interface NavItem {
 interface AnimatedNavProps {
   items: NavItem[];
   className?: string;
-  ease?: string;
-  baseColor?: string;
-  pillColor?: string;
-  hoveredPillTextColor?: string;
-  pillTextColor?: string;
-  initialLoadAnimation?: boolean;
 }
 
 const AnimatedNav: React.FC<AnimatedNavProps> = ({
   items,
-  className = '',
-  ease = 'power3.easeOut',
-  baseColor = '#ffffff',
-  pillColor = '#10b981', // emerald-500
-  hoveredPillTextColor = '#ffffff',
-  pillTextColor = '#10b981',
-  initialLoadAnimation = true
+  className = ''
 }) => {
   const navigate = useNavigate();
-  const resolvedPillTextColor = pillTextColor ?? baseColor;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const circleRefs = useRef<(HTMLSpanElement | null)[]>([]);
-  const tlRefs = useRef<(gsap.core.Timeline | null)[]>([]);
-  const activeTweenRefs = useRef<(gsap.core.Tween | null)[]>([]);
-  const logoRef = useRef<HTMLDivElement | null>(null);
-  const logoTweenRef = useRef<gsap.core.Tween | null>(null);
-  const textRef = useRef<HTMLAnchorElement | null>(null);
-  const textTweenRef = useRef<gsap.core.Tween | null>(null);
   const hamburgerRef = useRef<HTMLButtonElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
-  const navItemsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const layout = () => {
-      circleRefs.current.forEach((circle, index) => {
-        if (!circle?.parentElement) return;
-
-        const pill = circle.parentElement;
-        const rect = pill.getBoundingClientRect();
-        const { width: w, height: h } = rect;
-        const R = ((w * w) / 4 + h * h) / (2 * h);
-        const D = Math.ceil(2 * R) + 2;
-        const delta = Math.ceil(R - Math.sqrt(Math.max(0, R * R - (w * w) / 4))) + 1;
-        const originY = D - delta;
-
-        circle.style.width = `${D}px`;
-        circle.style.height = `${D}px`;
-        circle.style.bottom = `-${delta}px`;
-
-        gsap.set(circle, {
-          xPercent: -50,
-          scale: 0,
-          transformOrigin: `50% ${originY}px`
-        });
-
-        const label = pill.querySelector('.pill-label') as HTMLElement;
-        const white = pill.querySelector('.pill-label-hover') as HTMLElement;
-
-        if (label) gsap.set(label, { y: 0 });
-        if (white) gsap.set(white, { y: h + 12, opacity: 0 });
-
-        tlRefs.current[index]?.kill();
-        const tl = gsap.timeline({ paused: true });
-
-        tl.to(circle, { scale: 1.2, xPercent: -50, duration: 2, ease, overwrite: 'auto' }, 0);
-
-        if (label) {
-          tl.to(label, { y: -(h + 8), duration: 2, ease, overwrite: 'auto' }, 0);
-        }
-
-        if (white) {
-          gsap.set(white, { y: Math.ceil(h + 100), opacity: 0 });
-          tl.to(white, { y: 0, opacity: 1, duration: 2, ease, overwrite: 'auto' }, 0);
-        }
-
-        tlRefs.current[index] = tl;
-      });
-    };
-
-    layout();
-
-    const onResize = () => layout();
-    window.addEventListener('resize', onResize);
-
-    if (document.fonts?.ready) {
-      document.fonts.ready.then(layout).catch(() => {});
-    }
-
     const menu = mobileMenuRef.current;
     if (menu) {
       gsap.set(menu, { visibility: 'hidden', opacity: 0, scaleY: 1, y: 0 });
     }
-
-    if (initialLoadAnimation) {
-      const logo = logoRef.current;
-      const navItems = navItemsRef.current;
-
-      if (logo) {
-        gsap.set(logo, { scale: 0 });
-        gsap.to(logo, {
-          scale: 1,
-          duration: 0.6,
-          ease
-        });
-      }
-
-      if (navItems) {
-        gsap.set(navItems, { width: 0, overflow: 'hidden' });
-        gsap.to(navItems, {
-          width: 'auto',
-          duration: 0.6,
-          ease
-        });
-      }
-    }
-
-    // Inicializar el texto del logo
-    const text = textRef.current;
-    if (text) {
-      gsap.set(text, { opacity: 0, x: -10 });
-    }
-
-    return () => window.removeEventListener('resize', onResize);
-  }, [items, ease, initialLoadAnimation]);
-
-  const handleEnter = (i: number) => {
-    // Cancelar todas las animaciones activas primero
-    activeTweenRefs.current.forEach((tween, index) => {
-      if (index !== i && tween) {
-        tween.kill();
-        activeTweenRefs.current[index] = null;
-        // Resetear el estado de los otros elementos
-        const tl = tlRefs.current[index];
-        if (tl) {
-          tl.progress(0);
-        }
-      }
-    });
-
-    const tl = tlRefs.current[i];
-    if (!tl) return;
-    activeTweenRefs.current[i]?.kill();
-    activeTweenRefs.current[i] = tl.tweenTo(tl.duration(), {
-      duration: 0.3,
-      ease,
-      overwrite: 'auto'
-    });
-  };
-
-  const handleLeave = (i: number) => {
-    const tl = tlRefs.current[i];
-    if (!tl) return;
-    activeTweenRefs.current[i]?.kill();
-    activeTweenRefs.current[i] = tl.tweenTo(0, {
-      duration: 0.2,
-      ease,
-      overwrite: 'auto',
-      onComplete: () => {
-        activeTweenRefs.current[i] = null;
-      }
-    });
-  };
-
-  const handleLogoEnter = () => {
-    const logo = logoRef.current;
-    const text = textRef.current;
-    if (!logo) return;
-    
-    // Rotar el logo
-    logoTweenRef.current?.kill();
-    gsap.set(logo, { rotate: 0 });
-    logoTweenRef.current = gsap.to(logo, {
-      rotate: 360,
-      duration: 0.2,
-      ease,
-      overwrite: 'auto'
-    });
-
-    // Mostrar el texto más lentamente
-    if (text) {
-      textTweenRef.current?.kill();
-      gsap.set(text, { opacity: 0, x: -10 });
-      textTweenRef.current = gsap.to(text, {
-        opacity: 1,
-        x: 0,
-        duration: 0.8,
-        ease: 'power2.out',
-        overwrite: 'auto'
-      });
-    }
-  };
-
-  const handleLogoLeave = () => {
-    const text = textRef.current;
-    if (text) {
-      textTweenRef.current?.kill();
-      textTweenRef.current = gsap.to(text, {
-        opacity: 0,
-        x: -10,
-        duration: 0.4,
-        ease: 'power2.in',
-        overwrite: 'auto'
-      });
-    }
-  };
-
-  const handleTextEnter = () => {
-    const logo = logoRef.current;
-    if (!logo) return;
-    logoTweenRef.current?.kill();
-    gsap.set(logo, { rotate: 0 });
-    logoTweenRef.current = gsap.to(logo, {
-      rotate: 360,
-      duration: 0.2,
-      ease,
-      overwrite: 'auto'
-    });
-  };
+  }, []);
 
   const handleNavClick = (href: string, e: React.MouseEvent) => {
     // Manejar enlaces tipo "/#hash" que combinan ruta y hash
@@ -287,11 +86,11 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({
     if (hamburger) {
       const lines = hamburger.querySelectorAll('.hamburger-line');
       if (newState) {
-        gsap.to(lines[0], { rotation: 45, y: 3, duration: 0.3, ease });
-        gsap.to(lines[1], { rotation: -45, y: -3, duration: 0.3, ease });
+        gsap.to(lines[0], { rotation: 45, y: 3, duration: 0.3 });
+        gsap.to(lines[1], { rotation: -45, y: -3, duration: 0.3 });
       } else {
-        gsap.to(lines[0], { rotation: 0, y: 0, duration: 0.3, ease });
-        gsap.to(lines[1], { rotation: 0, y: 0, duration: 0.3, ease });
+        gsap.to(lines[0], { rotation: 0, y: 0, duration: 0.3 });
+        gsap.to(lines[1], { rotation: 0, y: 0, duration: 0.3 });
       }
     }
 
@@ -306,7 +105,6 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({
             y: 0,
             scaleY: 1,
             duration: 0.3,
-            ease,
             transformOrigin: 'top center'
           }
         );
@@ -316,7 +114,6 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({
           y: 10,
           scaleY: 1,
           duration: 0.2,
-          ease,
           transformOrigin: 'top center',
           onComplete: () => {
             gsap.set(menu, { visibility: 'hidden' });
@@ -327,156 +124,62 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({
   };
 
 
-  const cssVars: React.CSSProperties = {
-    ['--base' as any]: baseColor,
-    ['--pill-bg' as any]: pillColor,
-    ['--hover-text' as any]: hoveredPillTextColor,
-    ['--pill-text' as any]: resolvedPillTextColor,
-    ['--nav-h' as any]: '42px',
-    ['--logo' as any]: '36px',
-    ['--pill-pad-x' as any]: '18px',
-    ['--pill-gap' as any]: '3px'
-  };
-
   return (
-    <div className="fixed top-4 z-[1000] w-full left-0 flex justify-center">
+    <div className="fixed top-4 z-[1000] w-full left-0 flex justify-center px-4">
       <nav
-        className={`w-full max-w-4xl flex items-center justify-between box-border px-6 py-3 rounded-full ${className}`}
+        className={`w-full max-w-6xl flex items-center justify-between box-border px-6 py-3 rounded-full ${className}`}
         aria-label="Primary"
         style={{
-          ...cssVars,
           background: 'rgba(16, 185, 129, 0.1)',
           backdropFilter: 'blur(10px)',
           border: '1px solid rgba(16, 185, 129, 0.2)'
         }}
       >
         {/* Logo y nombre de marca a la izquierda */}
-        <div className="flex items-center gap-3">
-          <div className="relative group">
-            <div
-              ref={logoRef as React.RefObject<HTMLDivElement>}
-              className="inline-flex items-center justify-center"
-              onMouseEnter={handleLogoEnter}
-              onMouseLeave={handleLogoLeave}
-            >
-              <a
-                href="#inicio"
-                aria-label="Inicio"
-                className="inline-flex items-center justify-center"
-                onClick={(e) => handleNavClick('#inicio', e)}
-              >
-                <img 
-                  src={IMAGES.LOGO} 
-                  alt={IMAGE_ALTS.LOGO} 
-                  className="h-10 w-10 object-contain cursor-pointer"
-                />
-              </a>
-            </div>
-            <a
-              ref={textRef}
-              href="#inicio"
-              className="absolute left-full ml-3 top-1/2 -translate-y-1/2 text-xl font-bold text-emerald-600 opacity-0 whitespace-nowrap hidden sm:block cursor-pointer"
-              onMouseEnter={handleTextEnter}
-              onClick={(e) => handleNavClick('#inicio', e)}
-            >
-              Hidrocrin
-            </a>
-          </div>
-        </div>
-
-        {/* Elementos de navegación centrados */}
-        <div
-          ref={navItemsRef}
-          className="relative items-center rounded-full hidden md:flex"
-          style={{
-            height: 'var(--nav-h)',
-            background: 'var(--base, #000)'
-          }}
+        <a
+          href="#inicio"
+          aria-label="Inicio"
+          className="flex items-center gap-3"
+          onClick={(e) => handleNavClick('#inicio', e)}
         >
-          <ul
-            role="menubar"
-            className="list-none flex items-stretch m-0 p-[3px] h-full"
-            style={{ gap: 'var(--pill-gap)' }}
-          >
-            {items.map((item, i) => {
-              const pillStyle = {
-                background: 'var(--pill-bg, #fff)',
-                color: 'var(--pill-text, #10b981)',
-                paddingLeft: 'var(--pill-pad-x)',
-                paddingRight: 'var(--pill-pad-x)'
-              };
+          <img 
+            src={IMAGES.LOGO} 
+            alt={IMAGE_ALTS.LOGO} 
+            className="h-10 w-10 object-contain"
+          />
+          <span className="text-xl font-bold text-emerald-600 whitespace-nowrap">
+            Hidrocrin
+          </span>
+        </a>
 
-              const PillContent = (
-                <>
-                  <span
-                    className="hover-circle absolute left-1/2 bottom-0 rounded-full z-[1] block pointer-events-none"
-                    style={{
-                      background: 'var(--base, #000)',
-                      willChange: 'transform'
-                    }}
-                    aria-hidden="true"
-                    ref={el => {
-                      circleRefs.current[i] = el;
-                    }}
-                  />
-                  <span className="label-stack relative inline-block leading-[1] z-[2]">
-                    <span
-                      className="pill-label relative z-[2] inline-block leading-[1]"
-                      style={{ willChange: 'transform' }}
-                    >
-                      {item.label}
-                    </span>
-                    <span
-                      className="pill-label-hover absolute left-0 top-0 z-[3] inline-block"
-                      style={{
-                        color: 'var(--hover-text, #fff)',
-                        willChange: 'transform, opacity'
-                      }}
-                      aria-hidden="true"
-                    >
-                      {item.label}
-                    </span>
-                  </span>
-                </>
-              );
+        {/* Elementos de navegación */}
+        <div className="hidden md:flex items-center gap-3">
+          {items.map((item) => {
+            const linkClasses = 'px-6 py-2.5 bg-emerald-600 text-white font-semibold text-[14px] uppercase tracking-wide whitespace-nowrap cursor-pointer hover:bg-emerald-700 transition-all duration-200 no-underline rounded-full';
 
-              const basePillClasses =
-                'relative overflow-hidden inline-flex items-center justify-center h-full no-underline rounded-full box-border font-semibold text-[16px] leading-[0] uppercase tracking-[0.2px] whitespace-nowrap cursor-pointer px-0';
-
-              const isHash = item.href.startsWith('#') || item.href.includes('/#');
-              return (
-                <li key={item.href} role="none" className="flex h-full">
-                  {isHash ? (
-                    <a
-                      role="menuitem"
-                      href={item.href}
-                      className={basePillClasses}
-                      style={pillStyle}
-                      aria-label={item.ariaLabel || item.label}
-                      onMouseEnter={() => handleEnter(i)}
-                      onMouseLeave={() => handleLeave(i)}
-                      onClick={(e) => handleNavClick(item.href, e)}
-                    >
-                      {PillContent}
-                    </a>
-                  ) : (
-                    <Link
-                      role="menuitem"
-                      to={item.href}
-                      className={basePillClasses}
-                      style={pillStyle}
-                      aria-label={item.ariaLabel || item.label}
-                      onMouseEnter={() => handleEnter(i)}
-                      onMouseLeave={() => handleLeave(i)}
-                      onClick={(e) => handleNavClick(item.href, e)}
-                    >
-                      {PillContent}
-                    </Link>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
+            const isHash = item.href.startsWith('#') || item.href.includes('/#');
+            return isHash ? (
+              <a
+                key={item.href}
+                href={item.href}
+                className={linkClasses}
+                aria-label={item.ariaLabel || item.label}
+                onClick={(e) => handleNavClick(item.href, e)}
+              >
+                {item.label}
+              </a>
+            ) : (
+              <Link
+                key={item.href}
+                to={item.href}
+                className={linkClasses}
+                aria-label={item.ariaLabel || item.label}
+                onClick={(e) => handleNavClick(item.href, e)}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </div>
 
         {/* Botón de menú móvil a la derecha */}
@@ -485,51 +188,29 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({
           onClick={toggleMobileMenu}
           aria-label="Toggle menu"
           aria-expanded={isMobileMenuOpen}
-          className="md:hidden rounded-full border-0 flex flex-col items-center justify-center gap-1 cursor-pointer p-0 relative"
-          style={{
-            width: 'var(--nav-h)',
-            height: 'var(--nav-h)',
-            background: 'var(--base, #000)'
-          }}
+          className="md:hidden rounded-full border-0 flex flex-col items-center justify-center gap-1 cursor-pointer p-0 relative w-10 h-10 bg-white"
         >
           <span
-            className="hamburger-line w-4 h-0.5 rounded origin-center transition-all duration-[10ms] ease-[cubic-bezier(0.25,0.1,0.25,1)]"
-            style={{ background: 'var(--pill-bg, #fff)' }}
+            className="hamburger-line w-4 h-0.5 rounded origin-center transition-all duration-[10ms] ease-[cubic-bezier(0.25,0.1,0.25,1)] bg-emerald-600"
           />
           <span
-            className="hamburger-line w-4 h-0.5 rounded origin-center transition-all duration-[10ms] ease-[cubic-bezier(0.25,0.1,0.25,1)]"
-            style={{ background: 'var(--pill-bg, #fff)' }}
+            className="hamburger-line w-4 h-0.5 rounded origin-center transition-all duration-[10ms] ease-[cubic-bezier(0.25,0.1,0.25,1)] bg-emerald-600"
           />
         </button>
       </nav>
 
       <div
         ref={mobileMenuRef}
-        className="md:hidden absolute top-[4em] left-4 right-4 rounded-[27px] shadow-[0_8px_32px_rgba(0,0,0,0.12)] z-[998] origin-top"
+        className="md:hidden absolute top-[4em] left-4 right-4 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] z-[998] origin-top"
         style={{
-          ...cssVars,
-          background: 'rgba(16, 185, 129, 0.1)',
+          background: '#ffffff',
           backdropFilter: 'blur(10px)',
           border: '1px solid rgba(16, 185, 129, 0.2)'
         }}
       >
-        <ul className="list-none m-0 p-[3px] flex flex-col gap-[3px]">
+        <ul className="list-none m-0 p-3 flex flex-col gap-1">
           {items.map(item => {
-            const defaultStyle = {
-              background: 'var(--pill-bg, #fff)',
-              color: 'var(--pill-text, #10b981)'
-            };
-            const hoverIn = (e: React.MouseEvent<HTMLAnchorElement>) => {
-              e.currentTarget.style.background = 'var(--base)';
-              e.currentTarget.style.color = 'var(--hover-text, #10b981)';
-            };
-            const hoverOut = (e: React.MouseEvent<HTMLAnchorElement>) => {
-              e.currentTarget.style.background = 'var(--pill-bg, #fff)';
-              e.currentTarget.style.color = 'var(--pill-text, #10b981)';
-            };
-
-            const linkClasses =
-              'block py-3 px-4 text-[16px] font-medium rounded-[50px] transition-all duration-200 ease-[cubic-bezier(0.25,0.1,0.25,1)]';
+            const linkClasses = 'block py-3 px-4 text-[15px] font-semibold text-emerald-600 hover:text-emerald-700 hover:bg-emerald-50 rounded-xl transition-all duration-200 uppercase tracking-wide';
 
             const isHash = item.href.startsWith('#') || item.href.includes('/#');
             return (
@@ -538,9 +219,6 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({
                   <a
                     href={item.href}
                     className={linkClasses}
-                    style={defaultStyle}
-                    onMouseEnter={hoverIn}
-                    onMouseLeave={hoverOut}
                     onClick={(e) => {
                       e.preventDefault();
                       handleNavClick(item.href, e);
@@ -553,9 +231,6 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({
                   <Link
                     to={item.href}
                     className={linkClasses}
-                    style={defaultStyle}
-                    onMouseEnter={hoverIn}
-                    onMouseLeave={hoverOut}
                     onClick={() => {
                       setIsMobileMenuOpen(false);
                     }}

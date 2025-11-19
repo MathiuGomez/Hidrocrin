@@ -61,14 +61,16 @@ export default function HidrocrinLanding() {
         clearTimeout(timeout2)
         clearTimeout(timeout3)
       }
+    } else {
+      // Si no hay instrucción de scroll, asegurar que iniciamos en la parte superior
+      window.scrollTo(0, 0)
     }
   }, [location.state])
 
   const navItems = [
     { href: "#inicio", label: "Inicio" },
-    { href: "#solucion", label: "Solución" },
-    { href: "#beneficios", label: "Beneficios" },
-    { href: "#proceso", label: "Proceso" },
+    { href: "/sobre-nosotros", label: "Sobre Nosotros" },
+    { href: "/historia", label: "Historia" },
     { href: "#contacto-formulario", label: "Contacto" }
   ]
 
@@ -81,14 +83,7 @@ export default function HidrocrinLanding() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-background to-teal-50">
       {/* Animated Navigation */}
-      <AnimatedNav 
-        items={navItems}
-        baseColor="#ffffff"
-        pillColor="#ffffff"
-        hoveredPillTextColor="#10b981"
-        pillTextColor="#10b981"
-        initialLoadAnimation={true}
-      />
+      <AnimatedNav items={navItems} />
 
       {/* Hero Section */}
       <section id="inicio" className="pt-24 sm:pt-32 pb-12 sm:pb-20 px-4 relative overflow-hidden">
@@ -280,10 +275,12 @@ export default function HidrocrinLanding() {
               </div>
             </div>
             <div className="order-1 lg:order-2 space-y-4 sm:space-y-6">
-              <div className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-emerald-100 text-emerald-800 rounded-full text-xs sm:text-sm font-medium">
-                Nuestra Solución
+              <div className="space-y-3">
+                <div className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-emerald-100 text-emerald-800 rounded-full text-xs sm:text-sm font-medium">
+                  Nuestra Solución
+                </div>
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">Alfombras de Cabello Reciclado</h2>
               </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">Alfombras de Cabello Reciclado</h2>
               <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
                 Hidrocrin transforma el cabello desechado en alfombras innovadoras que se colocan en cultivos agrícolas.
                 Estas alfombras retienen hasta 5 veces su peso en agua y liberan nutrientes gradualmente al suelo.
