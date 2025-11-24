@@ -148,7 +148,7 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({
             className="h-10 w-10 object-contain"
           />
           <span className="text-xl font-bold text-emerald-600 whitespace-nowrap">
-            Hidrocrin
+            HIDROCRIN
           </span>
         </a>
 

@@ -55,3 +55,49 @@ body {
   color: hsl(var(--foreground));
   font-feature-settings: "rlig" 1, "calt" 1;
 }
+
+/* Estilos para el calendario responsive */
+.rdp {
+  margin: 0 auto;
+  background-color: white;
+}
+
+.rdp-months {
+  justify-content: center;
+}
+
+.rdp-month {
+  max-width: 100%;
+}
+
+.rdp-table {
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+/* Ajustes para calendario con múltiples meses */
+.rdp[data-number-of-months="2"] .rdp-table {
+  max-width: 280px;
+}
+
+.rdp-head_row,
+.rdp-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rdp-head_cell,
+.rdp-cell {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 640px) {
+  .rdp {
+    font-size: 0.875rem;
+  }
+  
+  .rdp-table {
+    max-width: 260px;
+  }
+}

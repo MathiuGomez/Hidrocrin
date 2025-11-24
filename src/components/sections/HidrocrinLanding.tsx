@@ -7,6 +7,7 @@ import { Video } from "../ui/video"
 import { Droplet, Leaf, Recycle, Users, ArrowRight, CheckCircle2, Mail, Phone, MapPin, Instagram, Facebook } from "lucide-react"
 import AnimatedNav from "../layout/AnimatedNav"
 import { IMAGES, IMAGE_ALTS } from "../../assets/images"
+import ActivityCalendar from "./ActivityCalendar"
 
 export default function HidrocrinLanding() {
   const location = useLocation()
@@ -610,6 +611,12 @@ export default function HidrocrinLanding() {
               Formemos una comunidad comprometida con la sostenibilidad y la economía circular.
             </p>
           </div>
+
+          {/* Calendario de Actividades */}
+          <div className="mb-12 sm:mb-16">
+            <ActivityCalendar />
+          </div>
+
           <div id="contacto-formulario" className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-stretch">
             {/* Formulario de Contacto */}
             <div 
@@ -693,45 +700,61 @@ export default function HidrocrinLanding() {
                 <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-4 sm:mb-6">Conoce más y apóyanos en</h3>
                 
                 <div className="space-y-3 sm:space-y-4 lg:space-y-6 flex-1">
-                  <div className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/30 hover:bg-white/40 transition-all duration-300">
-                    <div className="h-10 w-10 sm:h-12 sm:w-12 bg-emerald-100 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+                  <a 
+                    href="https://www.instagram.com/hidrrcrin?igsh=MTJxdTJqdGtia3R2YQ==" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/30 hover:bg-white/50 transition-all duration-300 cursor-pointer group"
+                  >
+                    <div className="h-10 w-10 sm:h-12 sm:w-12 bg-emerald-100 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-emerald-200 transition-colors">
                       <Instagram className="h-5 w-5 sm:h-6 sm:w-6 text-emerald-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-foreground mb-1 text-sm sm:text-base lg:text-lg">Instagram</h4>
-                      <p className="text-xs sm:text-sm lg:text-base text-muted-foreground">hidrrcrin</p>
+                      <h4 className="font-semibold text-foreground mb-1 text-sm sm:text-base lg:text-lg group-hover:text-emerald-700 transition-colors">Instagram</h4>
+                      <p className="text-xs sm:text-sm lg:text-base text-muted-foreground group-hover:text-emerald-600 transition-colors">@hidrrcrin</p>
                     </div>
-                  </div>
+                  </a>
                   
-                  <div className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/30 hover:bg-white/40 transition-all duration-300">
-                    <div className="h-10 w-10 sm:h-12 sm:w-12 bg-emerald-100 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+                  <a 
+                    href="https://www.facebook.com/share/1CiJxG658X/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/30 hover:bg-white/50 transition-all duration-300 cursor-pointer group"
+                  >
+                    <div className="h-10 w-10 sm:h-12 sm:w-12 bg-emerald-100 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-emerald-200 transition-colors">
                       <Facebook className="h-5 w-5 sm:h-6 sm:w-6 text-emerald-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-foreground mb-1 text-sm sm:text-base lg:text-lg">Facebook</h4>
-                      <p className="text-xs sm:text-sm lg:text-base text-muted-foreground">Hidrocrin Dos Mundos</p>
+                      <h4 className="font-semibold text-foreground mb-1 text-sm sm:text-base lg:text-lg group-hover:text-emerald-700 transition-colors">Facebook</h4>
+                      <p className="text-xs sm:text-sm lg:text-base text-muted-foreground group-hover:text-emerald-600 transition-colors">Hidrocrin Dos Mundos</p>
                     </div>
-                  </div>
+                  </a>
                   
-                  <div className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/30 hover:bg-white/40 transition-all duration-300">
-                    <div className="h-10 w-10 sm:h-12 sm:w-12 bg-emerald-100 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+                  <a 
+                    href="mailto:hidrocrin.dosmundo@gmail.com"
+                    className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/30 hover:bg-white/50 transition-all duration-300 cursor-pointer group"
+                  >
+                    <div className="h-10 w-10 sm:h-12 sm:w-12 bg-emerald-100 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-emerald-200 transition-colors">
                       <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-emerald-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-foreground mb-1 text-sm sm:text-base lg:text-lg">Correo</h4>
-                      <p className="text-xs sm:text-sm lg:text-base text-muted-foreground break-all">hidrocrin.dosmundo@gmail.com</p>
+                      <h4 className="font-semibold text-foreground mb-1 text-sm sm:text-base lg:text-lg group-hover:text-emerald-700 transition-colors">Correo</h4>
+                      <p className="text-xs sm:text-sm lg:text-base text-muted-foreground break-all group-hover:text-emerald-600 transition-colors">hidrocrin.dosmundo@gmail.com</p>
                     </div>
-                  </div>
+                  </a>
                   
-                  <div className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/30 hover:bg-white/40 transition-all duration-300">
-                    <div className="h-10 w-10 sm:h-12 sm:w-12 bg-emerald-100 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+                  <a 
+                    href="tel:+56975266692"
+                    className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/30 hover:bg-white/50 transition-all duration-300 cursor-pointer group"
+                  >
+                    <div className="h-10 w-10 sm:h-12 sm:w-12 bg-emerald-100 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-emerald-200 transition-colors">
                       <Phone className="h-5 w-5 sm:h-6 sm:w-6 text-emerald-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-foreground mb-1 text-sm sm:text-base lg:text-lg">Contáctanos</h4>
-                      <p className="text-xs sm:text-sm lg:text-base text-muted-foreground">975266692 – 956113831</p>
+                      <h4 className="font-semibold text-foreground mb-1 text-sm sm:text-base lg:text-lg group-hover:text-emerald-700 transition-colors">Contáctanos</h4>
+                      <p className="text-xs sm:text-sm lg:text-base text-muted-foreground group-hover:text-emerald-600 transition-colors">975266692 – 956113831</p>
                     </div>
-                  </div>
+                  </a>
                   
                   <div className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/30 hover:bg-white/40 transition-all duration-300">
                     <div className="h-10 w-10 sm:h-12 sm:w-12 bg-emerald-100 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
@@ -783,61 +806,29 @@ export default function HidrocrinLanding() {
                 </p>
                 <div className="flex items-center gap-3 sm:gap-4">
                   <a 
-                    href="#contacto-formulario"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      const element = document.getElementById("contacto-formulario");
-                      if (element) {
-                        const headerOffset = 120;
-                        const elementPosition = element.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                        window.scrollTo({
-                          top: Math.max(0, offsetPosition),
-                          behavior: "smooth"
-                        });
-                      }
-                    }}
+                    href="mailto:hidrocrin.dosmundo@gmail.com"
                     className="h-10 w-10 bg-emerald-100 rounded-lg flex items-center justify-center hover:bg-emerald-200 transition-colors cursor-pointer"
+                    aria-label="Enviar correo"
                   >
                     <Mail className="h-5 w-5 text-emerald-600" />
                   </a>
                   <a 
-                    href="#contacto-formulario"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      const element = document.getElementById("contacto-formulario");
-                      if (element) {
-                        const headerOffset = 120;
-                        const elementPosition = element.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                        window.scrollTo({
-                          top: Math.max(0, offsetPosition),
-                          behavior: "smooth"
-                        });
-                      }
-                    }}
-                    className="h-10 w-10 bg-teal-100 rounded-lg flex items-center justify-center hover:bg-teal-200 transition-colors cursor-pointer"
+                    href="https://www.instagram.com/hidrrcrin?igsh=MTJxdTJqdGtia3R2YQ=="
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="h-10 w-10 bg-pink-100 rounded-lg flex items-center justify-center hover:bg-pink-200 transition-colors cursor-pointer"
+                    aria-label="Instagram"
                   >
-                    <Phone className="h-5 w-5 text-teal-600" />
+                    <Instagram className="h-5 w-5 text-pink-600" />
                   </a>
                   <a 
-                    href="#contacto-formulario"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      const element = document.getElementById("contacto-formulario");
-                      if (element) {
-                        const headerOffset = 120;
-                        const elementPosition = element.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                        window.scrollTo({
-                          top: Math.max(0, offsetPosition),
-                          behavior: "smooth"
-                        });
-                      }
-                    }}
-                    className="h-10 w-10 bg-emerald-100 rounded-lg flex items-center justify-center hover:bg-emerald-200 transition-colors cursor-pointer"
+                    href="https://www.facebook.com/share/1CiJxG658X/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="h-10 w-10 bg-blue-100 rounded-lg flex items-center justify-center hover:bg-blue-200 transition-colors cursor-pointer"
+                    aria-label="Facebook"
                   >
-                    <MapPin className="h-5 w-5 text-emerald-600" />
+                    <Facebook className="h-5 w-5 text-blue-600" />
                   </a>
                 </div>
               </div>

@@ -1,5 +1,5 @@
 import { Link, useNavigate, useLocation } from "react-router-dom"
-import { Mail, Phone, MapPin, Leaf } from "lucide-react"
+import { Mail, Phone, MapPin, Leaf, Instagram, Facebook } from "lucide-react"
 import { IMAGES, IMAGE_ALTS } from "../../assets/images"
 
 export default function Footer() {
@@ -63,20 +63,28 @@ export default function Footer() {
                 <a 
                   href="mailto:hidrocrin.dosmundo@gmail.com"
                   className="h-10 w-10 bg-emerald-100 rounded-lg flex items-center justify-center hover:bg-emerald-200 transition-colors cursor-pointer"
-                  aria-label="Email"
+                  aria-label="Enviar correo"
                 >
                   <Mail className="h-5 w-5 text-emerald-600" />
                 </a>
                 <a 
-                  href="tel:+56975266692"
-                  className="h-10 w-10 bg-teal-100 rounded-lg flex items-center justify-center hover:bg-teal-200 transition-colors cursor-pointer"
-                  aria-label="Teléfono"
+                  href="https://www.instagram.com/hidrrcrin?igsh=MTJxdTJqdGtia3R2YQ=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="h-10 w-10 bg-pink-100 rounded-lg flex items-center justify-center hover:bg-pink-200 transition-colors cursor-pointer"
+                  aria-label="Instagram"
                 >
-                  <Phone className="h-5 w-5 text-teal-600" />
+                  <Instagram className="h-5 w-5 text-pink-600" />
                 </a>
-                <div className="h-10 w-10 bg-emerald-100 rounded-lg flex items-center justify-center hover:bg-emerald-200 transition-colors cursor-pointer">
-                  <MapPin className="h-5 w-5 text-emerald-600" />
-                </div>
+                <a 
+                  href="https://www.facebook.com/share/1CiJxG658X/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="h-10 w-10 bg-blue-100 rounded-lg flex items-center justify-center hover:bg-blue-200 transition-colors cursor-pointer"
+                  aria-label="Facebook"
+                >
+                  <Facebook className="h-5 w-5 text-blue-600" />
+                </a>
               </div>
             </div>
 
