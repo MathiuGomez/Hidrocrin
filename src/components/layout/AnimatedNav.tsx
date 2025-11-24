@@ -125,9 +125,9 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({
 
 
   return (
-    <div className="fixed top-4 z-[1000] w-full left-0 flex justify-center px-4">
+    <div className="fixed top-2 sm:top-4 z-[1000] w-full left-0 flex justify-center px-3 sm:px-4">
       <nav
-        className={`w-full max-w-6xl flex items-center justify-between box-border px-6 py-3 rounded-full ${className}`}
+        className={`w-full max-w-6xl flex items-center justify-between box-border px-4 sm:px-6 py-2.5 sm:py-3 rounded-full ${className}`}
         aria-label="Primary"
         style={{
           background: 'rgba(16, 185, 129, 0.1)',
@@ -139,23 +139,23 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({
         <a
           href="#inicio"
           aria-label="Inicio"
-          className="flex items-center gap-3"
+          className="flex items-center gap-2 sm:gap-3"
           onClick={(e) => handleNavClick('#inicio', e)}
         >
           <img 
             src={IMAGES.LOGO} 
             alt={IMAGE_ALTS.LOGO} 
-            className="h-10 w-10 object-contain"
+            className="h-8 w-8 sm:h-10 sm:w-10 object-contain"
           />
-          <span className="text-xl font-bold text-emerald-600 whitespace-nowrap">
+          <span className="text-base sm:text-xl font-bold text-emerald-600 whitespace-nowrap">
             HIDROCRIN
           </span>
         </a>
 
         {/* Elementos de navegación */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden md:flex items-center gap-2 lg:gap-3">
           {items.map((item) => {
-            const linkClasses = 'px-6 py-2.5 bg-emerald-600 text-white font-semibold text-[14px] uppercase tracking-wide whitespace-nowrap cursor-pointer hover:bg-emerald-700 transition-all duration-200 no-underline rounded-full';
+            const linkClasses = 'px-4 lg:px-6 py-2 lg:py-2.5 bg-emerald-600 text-white font-semibold text-[12px] lg:text-[14px] uppercase tracking-wide whitespace-nowrap cursor-pointer hover:bg-emerald-700 transition-all duration-200 no-underline rounded-full';
 
             const isHash = item.href.startsWith('#') || item.href.includes('/#');
             return isHash ? (
@@ -201,16 +201,16 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({
 
       <div
         ref={mobileMenuRef}
-        className="md:hidden absolute top-[4em] left-4 right-4 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] z-[998] origin-top"
+        className="md:hidden absolute top-[3.5em] sm:top-[4em] left-3 right-3 sm:left-4 sm:right-4 rounded-2xl sm:rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] z-[998] origin-top max-w-sm mx-auto"
         style={{
           background: '#ffffff',
           backdropFilter: 'blur(10px)',
           border: '1px solid rgba(16, 185, 129, 0.2)'
         }}
       >
-        <ul className="list-none m-0 p-3 flex flex-col gap-1">
+        <ul className="list-none m-0 p-2 sm:p-3 flex flex-col gap-1">
           {items.map(item => {
-            const linkClasses = 'block py-3 px-4 text-[15px] font-semibold text-emerald-600 hover:text-emerald-700 hover:bg-emerald-50 rounded-xl transition-all duration-200 uppercase tracking-wide';
+            const linkClasses = 'block py-2.5 sm:py-3 px-3 sm:px-4 text-[14px] sm:text-[15px] font-semibold text-emerald-600 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg sm:rounded-xl transition-all duration-200 uppercase tracking-wide';
 
             const isHash = item.href.startsWith('#') || item.href.includes('/#');
             return (

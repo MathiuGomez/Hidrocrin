@@ -12,7 +12,7 @@ export default function SobreNosotros() {
   return (
     <PageLayout>
       {/* Hero Section */}
-      <section className="pt-24 sm:pt-28 lg:pt-32 pb-4 px-4 relative overflow-hidden">
+      <section className="pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-6 sm:pb-8 lg:pb-10 px-4 relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 left-10 w-32 h-32 bg-emerald-300 rounded-full blur-3xl"></div>
@@ -21,27 +21,27 @@ export default function SobreNosotros() {
         </div>
         
         <div className="container mx-auto max-w-4xl relative z-10">
-          <div className="text-center mb-6 sm:mb-8">
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+          <div className="text-center mb-4 sm:mb-6 md:mb-8">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3 md:gap-4 mb-3 sm:mb-4 md:mb-6">
               <img 
                 src={IMAGES.LOGO} 
                 alt={IMAGE_ALTS.LOGO} 
-                className="h-16 w-16 sm:h-20 sm:w-20 object-contain"
+                className="h-12 w-12 sm:h-16 sm:w-16 md:h-20 md:w-20 object-contain"
               />
-              <div className="inline-block px-4 sm:px-6 py-2 sm:py-3 bg-emerald-100 text-emerald-800 rounded-full text-sm sm:text-base lg:text-lg font-medium">
+              <div className="inline-block px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-3 bg-emerald-100 text-emerald-800 rounded-full text-xs sm:text-sm md:text-base lg:text-lg font-medium">
                 Sobre Nosotros
               </div>
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-3 sm:mb-4 leading-tight px-4">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-2 sm:mb-3 md:mb-4 leading-tight px-4">
               Conoce a <span className="text-emerald-600">Hidrocrin</span>
             </h1>
-            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-6 sm:mb-8 px-4">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-4 sm:mb-6 md:mb-8 px-4">
               Innovación social que transforma realidades
             </p>
             
             {/* Imagen */}
             <div className="max-w-5xl mx-auto">
-              <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
+              <div className="rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl">
                 <img 
                   src={IMAGES.SOBRE_NOSOTROS} 
                   alt={IMAGE_ALTS.SOBRE_NOSOTROS}
@@ -54,16 +54,16 @@ export default function SobreNosotros() {
       </section>
 
       {/* Main Content Section */}
-      <section className="pt-4 pb-8 sm:pb-12 px-4">
+      <section className="py-6 sm:py-8 lg:py-10 px-4">
         <div className="container mx-auto max-w-4xl">
           <div 
-            className="p-5 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl mb-6 sm:mb-8"
+            className="p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl sm:rounded-2xl lg:rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-xl mb-4 sm:mb-6 md:mb-8"
             style={{
               background: 'rgba(16, 185, 129, 0.08)',
               backdropFilter: 'blur(20px)',
             }}
           >
-            <div className="space-y-3 sm:space-y-4 text-sm sm:text-base lg:text-lg text-muted-foreground leading-relaxed">
+            <div className="space-y-2.5 sm:space-y-3 md:space-y-4 text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed">
               <p>
                 En Hidrocrin creemos que la innovación social puede transformar realidades. Somos un proyecto nacido 
                 en la carrera de Peluquería del Instituto AIEP en Puerto Montt, con la misión de darle una segunda 
@@ -83,51 +83,51 @@ export default function SobreNosotros() {
           </div>
 
           {/* Valores Section */}
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
             <div 
-              className="p-5 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl text-center"
+              className="p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl sm:rounded-2xl lg:rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-xl text-center"
               style={{
                 background: 'rgba(16, 185, 129, 0.08)',
                 backdropFilter: 'blur(20px)',
               }}
             >
-              <div className="h-12 w-12 sm:h-16 sm:w-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                <Leaf className="h-6 w-6 sm:h-8 sm:w-8 text-emerald-600" />
+              <div className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3 md:mb-4">
+                <Leaf className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-emerald-600" />
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2 sm:mb-3">Sustentabilidad</h3>
-              <p className="text-sm sm:text-base text-muted-foreground">
+              <h3 className="text-base sm:text-lg md:text-xl font-bold text-foreground mb-2 sm:mb-3">Sustentabilidad</h3>
+              <p className="text-xs sm:text-sm md:text-base text-muted-foreground">
                 Transformamos residuos en recursos valiosos para el medio ambiente
               </p>
             </div>
 
             <div 
-              className="p-5 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl text-center"
+              className="p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl sm:rounded-2xl lg:rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-xl text-center"
               style={{
                 background: 'rgba(16, 185, 129, 0.08)',
                 backdropFilter: 'blur(20px)',
               }}
             >
-              <div className="h-12 w-12 sm:h-16 sm:w-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                <Recycle className="h-6 w-6 sm:h-8 sm:w-8 text-teal-600" />
+              <div className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3 md:mb-4">
+                <Recycle className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-teal-600" />
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2 sm:mb-3">Economía Circular</h3>
-              <p className="text-sm sm:text-base text-muted-foreground">
+              <h3 className="text-base sm:text-lg md:text-xl font-bold text-foreground mb-2 sm:mb-3">Economía Circular</h3>
+              <p className="text-xs sm:text-sm md:text-base text-muted-foreground">
                 Cerramos el ciclo de los residuos creando valor para la comunidad
               </p>
             </div>
 
             <div 
-              className="p-5 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl text-center sm:col-span-2 md:col-span-1"
+              className="p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl sm:rounded-2xl lg:rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-xl text-center sm:col-span-2 md:col-span-1"
               style={{
                 background: 'rgba(16, 185, 129, 0.08)',
                 backdropFilter: 'blur(20px)',
               }}
             >
-              <div className="h-12 w-12 sm:h-16 sm:w-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                <Users className="h-6 w-6 sm:h-8 sm:w-8 text-emerald-600" />
+              <div className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3 md:mb-4">
+                <Users className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-emerald-600" />
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2 sm:mb-3">Impacto Social</h3>
-              <p className="text-sm sm:text-base text-muted-foreground">
+              <h3 className="text-base sm:text-lg md:text-xl font-bold text-foreground mb-2 sm:mb-3">Impacto Social</h3>
+              <p className="text-xs sm:text-sm md:text-base text-muted-foreground">
                 Apoyamos a pequeños agricultores y promovemos prácticas sostenibles
               </p>
             </div>
