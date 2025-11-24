@@ -1,5 +1,5 @@
 import { Link, useNavigate, useLocation } from "react-router-dom"
-import { Mail, Phone, MapPin, Leaf, Instagram, Facebook } from "lucide-react"
+import { Mail, Leaf, Instagram, Facebook } from "lucide-react"
 import { IMAGES, IMAGE_ALTS } from "../../assets/images"
 
 export default function Footer() {
