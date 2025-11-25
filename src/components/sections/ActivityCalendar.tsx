@@ -144,7 +144,7 @@ export default function ActivityCalendar() {
               </div>
               
               <div className="flex justify-center flex-1 flex-col">
-                <div className="w-full max-w-lg mx-auto">
+                <div className="w-full flex justify-center">
                   <Calendar
                     mode="single"
                     selected={selectedDate}
@@ -156,7 +156,8 @@ export default function ActivityCalendar() {
                     onMonthChange={setCurrentMonth}
                     modifiers={modifiers}
                     modifiersStyles={modifiersStyles}
-                    className="w-full rounded-xl border-0 bg-white/70 backdrop-blur-sm shadow-inner p-6"
+                    buttonVariant="ghost"
+                    className="rounded-lg border border-emerald-100 shadow-sm p-6 bg-white/80 backdrop-blur-sm"
                   />
                 </div>
               

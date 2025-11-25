@@ -2,12 +2,15 @@ import { DayPicker, type DayPickerProps } from "react-day-picker"
 import { cn } from "../../lib/utils"
 import "react-day-picker/dist/style.css"
 
-export type CalendarProps = DayPickerProps
+export type CalendarProps = DayPickerProps & {
+  buttonVariant?: "default" | "ghost"
+}
 
 function Calendar({
   className,
   classNames,
   showOutsideDays = true,
+  buttonVariant = "default",
   ...props
 }: CalendarProps) {
   return (
@@ -15,30 +18,33 @@ function Calendar({
       showOutsideDays={showOutsideDays}
       className={cn("bg-white", className)}
       classNames={{
-        months: "flex flex-col sm:flex-row",
-        month: "space-y-3",
-        caption: "flex justify-center pt-1 relative items-center mb-2",
-        caption_label: "text-base font-semibold text-gray-800",
+        months: "flex flex-col sm:flex-row gap-4",
+        month: "space-y-4",
+        caption: "flex justify-center pt-1 relative items-center mb-4",
+        caption_label: "text-lg font-semibold text-gray-800",
         nav: "space-x-1 flex items-center",
         nav_button: cn(
-          "h-8 w-8 bg-transparent p-0 opacity-60 hover:opacity-100 inline-flex items-center justify-center rounded-lg hover:bg-emerald-100 transition-colors"
+          "h-9 w-9 bg-transparent p-0 opacity-60 hover:opacity-100 inline-flex items-center justify-center rounded-md hover:bg-emerald-100 transition-colors"
         ),
         nav_button_previous: "absolute left-1",
         nav_button_next: "absolute right-1",
-        table: "w-full border-collapse",
-        head_row: "flex mb-1",
-        head_cell: "text-gray-600 rounded-md w-10 font-medium text-sm",
+        table: "w-full border-collapse space-y-1",
+        head_row: "flex",
+        head_cell: "text-gray-600 rounded-md w-12 font-medium text-sm",
         row: "flex w-full mt-1",
-        cell: "h-10 w-10 text-center text-sm p-0 relative [&:has([aria-selected])]:bg-accent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20",
+        cell: "relative p-0 text-center text-sm focus-within:relative focus-within:z-20 [&:has([aria-selected])]:bg-accent",
         day: cn(
-          "h-10 w-10 p-0 font-normal text-sm aria-selected:opacity-100 hover:bg-emerald-100 rounded-lg transition-colors inline-flex items-center justify-center cursor-pointer"
+          buttonVariant === "ghost" 
+            ? "h-12 w-12 p-0 font-normal hover:bg-emerald-50 hover:text-emerald-900" 
+            : "h-12 w-12 p-0 font-normal hover:bg-emerald-100",
+          "rounded-lg transition-colors inline-flex items-center justify-center cursor-pointer"
         ),
         day_selected:
           "bg-emerald-600 text-white hover:bg-emerald-700 hover:text-white focus:bg-emerald-700 focus:text-white",
-        day_today: "bg-emerald-100 text-emerald-900 font-semibold ring-2 ring-emerald-300",
+        day_today: "bg-emerald-50 text-emerald-900 font-semibold",
         day_outside:
-          "text-gray-400 opacity-50",
-        day_disabled: "text-gray-400 opacity-50 cursor-not-allowed hover:bg-transparent",
+          "text-gray-300 opacity-50",
+        day_disabled: "text-gray-300 opacity-50 cursor-not-allowed hover:bg-transparent",
         day_hidden: "invisible",
         ...classNames,
       }}

@@ -4,6 +4,7 @@ import { Button } from "../ui/button"
 import { Input } from "../ui/input"
 import { Textarea } from "../ui/textarea"
 import { Video } from "../ui/video"
+import { Carousel } from "../ui/carousel"
 import { Droplet, Leaf, Recycle, Users, ArrowRight, CheckCircle2, Mail, Phone, Instagram, Facebook } from "lucide-react"
 import AnimatedNav from "../layout/AnimatedNav"
 import { IMAGES, IMAGE_ALTS } from "../../assets/images"
@@ -164,13 +165,23 @@ export default function HidrocrinLanding() {
               </div>
             </div>
             <div className="relative mt-6 lg:mt-0">
-              <div className="aspect-square rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl">
-                <img 
-                  src={IMAGES.HERO_IMAGE} 
-                  alt={IMAGE_ALTS.HERO_IMAGE}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+              <Carousel 
+                images={[
+                  {
+                    src: IMAGES.COLEGIO_RURAL,
+                    alt: IMAGE_ALTS.COLEGIO_RURAL
+                  },
+                  {
+                    src: IMAGES.SEMINARIO_CHILOE,
+                    alt: IMAGE_ALTS.SEMINARIO_CHILOE
+                  },
+                  {
+                    src: IMAGES.SOCIO_COMUNITARIO,
+                    alt: IMAGE_ALTS.SOCIO_COMUNITARIO
+                  }
+                ]}
+                autoPlayInterval={5000}
+              />
             </div>
           </div>
         </div>
