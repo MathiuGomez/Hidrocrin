@@ -72,7 +72,7 @@ body {
 
 .rdp-table {
   width: 100%;
-  max-width: 280px;
+  max-width: 320px;
   margin: 0 auto;
 }
 
@@ -85,6 +85,7 @@ body {
 .rdp-row {
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
 .rdp-head_cell,
@@ -94,9 +95,19 @@ body {
 
 @media (max-width: 640px) {
   .rdp {
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
   }
   
+  .rdp-table {
+    max-width: 280px;
+  }
+  
+  .rdp-caption_label {
+    font-size: 0.9375rem;
+  }
+}
+
+@media (max-width: 380px) {
   .rdp-table {
     max-width: 260px;
   }

@@ -4,10 +4,10 @@ export const IMAGES = {
   HERO_IMAGE: '/assets/images/Gemini_Generated_Image_qme85cqme85cqme8.png',
   SOLUTION_IMAGE: '/assets/images/Gemini_Generated_Image_qme85cqme85cqme8 (1).png',
   SOBRE_NOSOTROS: '/assets/images/WhatsApp Image 2025-11-16 at 09.12.36_5c08015f.jpg',
-  // Carrusel de actividades
-  COLEGIO_RURAL: '/assets/Participación en colegio rural de puerto montt conjunto con una charla.jpeg',
-  SEMINARIO_CHILOE: '/assets/Seminario en la universidad en chiloé.jpeg',
-  SOCIO_COMUNITARIO: '/assets/Socio comunitario en el sector hualaihue  hornopiren.jpeg'
+  // Carrusel de actividades - Rutas corregidas
+  COLEGIO_RURAL: '/assets/images/Participación en colegio rural de puerto montt conjunto con una charla.jpeg',
+  SEMINARIO_CHILOE: '/assets/images/Seminario en la universidad en chiloé.jpeg',
+  SOCIO_COMUNITARIO: '/assets/images/socio-comunitario-hualaihue.jpeg'
 } as const
 
 // Image alt texts

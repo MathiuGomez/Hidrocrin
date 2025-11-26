@@ -93,7 +93,7 @@ export default function HidrocrinLanding() {
       <AnimatedNav items={navItems} />
 
       {/* Hero Section */}
-      <section id="inicio" className="pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-10 sm:pb-16 lg:pb-20 px-4 relative overflow-hidden">
+      <section id="inicio" className="pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-8 sm:pb-12 md:pb-16 lg:pb-20 px-3 sm:px-4 relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 left-10 w-32 h-32 bg-emerald-300 rounded-full blur-3xl"></div>
@@ -188,15 +188,15 @@ export default function HidrocrinLanding() {
       </section>
 
       {/* Problema Section */}
-      <section id="problema" className="py-10 sm:py-14 lg:py-20 px-4 bg-muted/30">
+      <section id="problema" className="py-8 sm:py-10 md:py-14 lg:py-20 px-3 sm:px-4 bg-muted/30">
         <div className="container mx-auto max-w-7xl">
-          <div className="text-center mb-6 sm:mb-10 lg:mb-16">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-2 sm:mb-3 md:mb-4">El Problema que Enfrentamos</h2>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto text-pretty px-4">
+          <div className="text-center mb-5 sm:mb-8 md:mb-10 lg:mb-16">
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-foreground mb-2 sm:mb-3 md:mb-4 px-2 sm:px-4">El Problema que Enfrentamos</h2>
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-2xl mx-auto text-pretty px-2 sm:px-4">
               Dos crisis ambientales que necesitan soluciones urgentes e innovadoras
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
             <div 
               className="p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl sm:rounded-2xl lg:rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-xl hover:shadow-2xl transition-all duration-300"
               style={{
@@ -204,12 +204,12 @@ export default function HidrocrinLanding() {
                 backdropFilter: 'blur(20px)',
               }}
             >
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-3 md:gap-4 mb-3 sm:mb-4">
+              <div className="flex flex-row items-center justify-center sm:justify-start gap-2 sm:gap-3 md:gap-4 mb-3 sm:mb-4">
                 <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-foreground">Residuos de Peluquerías</h3>
                 <img 
                   src={IMAGES.LOGO} 
                   alt={IMAGE_ALTS.LOGO} 
-                  className="h-8 sm:h-10 md:h-12 object-contain"
+                  className="h-6 sm:h-8 md:h-10 lg:h-12 object-contain"
                 />
               </div>
               <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed mb-3 sm:mb-4">
@@ -236,12 +236,12 @@ export default function HidrocrinLanding() {
                 backdropFilter: 'blur(20px)',
               }}
             >
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-3 md:gap-4 mb-3 sm:mb-4">
+              <div className="flex flex-row items-center justify-center sm:justify-start gap-2 sm:gap-3 md:gap-4 mb-3 sm:mb-4">
                 <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-foreground">Crisis de Sequía</h3>
                 <img 
                   src={IMAGES.LOGO} 
                   alt={IMAGE_ALTS.LOGO} 
-                  className="h-8 sm:h-10 md:h-12 object-contain"
+                  className="h-6 sm:h-8 md:h-10 lg:h-12 object-contain"
                 />
               </div>
               <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed mb-3 sm:mb-4">
@@ -264,7 +264,7 @@ export default function HidrocrinLanding() {
       </section>
 
       {/* Solución Section */}
-      <section id="solucion" className="py-10 sm:py-14 lg:py-20 px-4 relative overflow-hidden">
+      <section id="solucion" className="py-8 sm:py-10 md:py-14 lg:py-20 px-3 sm:px-4 relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-3">
           <div className="absolute top-10 right-10 w-28 h-28 bg-emerald-200 rounded-full blur-2xl"></div>
@@ -283,11 +283,14 @@ export default function HidrocrinLanding() {
               */}
               
               {/* Opción 2: Mantener la imagen (por defecto) */}
-              <div className="aspect-video rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl">
+              <div className="aspect-video rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl bg-gray-100">
                 <img 
                   src={IMAGES.SOLUTION_IMAGE} 
                   alt={IMAGE_ALTS.SOLUTION_IMAGE}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
+                  style={{ aspectRatio: '16/9' }}
                 />
               </div>
             </div>
@@ -343,15 +346,15 @@ export default function HidrocrinLanding() {
       </section>
 
       {/* Beneficios Section */}
-      <section id="beneficios" className="py-10 sm:py-14 lg:py-20 px-4 bg-muted/30">
+      <section id="beneficios" className="py-8 sm:py-10 md:py-14 lg:py-20 px-3 sm:px-4 bg-muted/30">
         <div className="container mx-auto max-w-7xl">
-          <div className="text-center mb-6 sm:mb-10 lg:mb-16">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-2 sm:mb-3 md:mb-4">Beneficios para Todos</h2>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto text-pretty px-4">
+          <div className="text-center mb-5 sm:mb-8 md:mb-10 lg:mb-16">
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-foreground mb-2 sm:mb-3 md:mb-4 px-2 sm:px-4">Beneficios para Todos</h2>
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-2xl mx-auto text-pretty px-2 sm:px-4">
               Una solución que genera valor para múltiples actores en la cadena
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
             <div 
               className="p-5 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl hover:shadow-2xl transition-all duration-300"
               style={{
@@ -359,12 +362,12 @@ export default function HidrocrinLanding() {
                 backdropFilter: 'blur(20px)',
               }}
             >
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+              <div className="flex flex-row items-center justify-center sm:justify-start gap-2 sm:gap-3 lg:gap-4 mb-3 sm:mb-4">
                 <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground">Para Agricultores</h3>
                 <img 
                   src={IMAGES.LOGO} 
                   alt={IMAGE_ALTS.LOGO} 
-                  className="h-10 sm:h-12 object-contain"
+                  className="h-6 sm:h-8 lg:h-10 xl:h-12 object-contain"
                 />
               </div>
               <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-3 sm:mb-4">
@@ -397,12 +400,12 @@ export default function HidrocrinLanding() {
                 backdropFilter: 'blur(20px)',
               }}
             >
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+              <div className="flex flex-row items-center justify-center sm:justify-start gap-2 sm:gap-3 lg:gap-4 mb-3 sm:mb-4">
                 <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground">Para Peluquerías</h3>
                 <img 
                   src={IMAGES.LOGO} 
                   alt={IMAGE_ALTS.LOGO} 
-                  className="h-10 sm:h-12 object-contain"
+                  className="h-6 sm:h-8 lg:h-10 xl:h-12 object-contain"
                 />
               </div>
               <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-3 sm:mb-4">
@@ -435,12 +438,12 @@ export default function HidrocrinLanding() {
                 backdropFilter: 'blur(20px)',
               }}
             >
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+              <div className="flex flex-row items-center justify-center sm:justify-start gap-2 sm:gap-3 lg:gap-4 mb-3 sm:mb-4">
                 <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground">Para el Medio Ambiente</h3>
                 <img 
                   src={IMAGES.LOGO} 
                   alt={IMAGE_ALTS.LOGO} 
-                  className="h-10 sm:h-12 object-contain"
+                  className="h-6 sm:h-8 lg:h-10 xl:h-12 object-contain"
                 />
               </div>
               <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-3 sm:mb-4">
@@ -470,7 +473,7 @@ export default function HidrocrinLanding() {
       </section>
 
       {/* Proceso Section */}
-      <section id="proceso" className="py-10 sm:py-14 lg:py-20 px-4 relative overflow-hidden">
+      <section id="proceso" className="py-8 sm:py-10 md:py-14 lg:py-20 px-3 sm:px-4 relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 left-10 w-32 h-32 bg-emerald-300 rounded-full blur-3xl"></div>
@@ -479,13 +482,13 @@ export default function HidrocrinLanding() {
         </div>
         
         <div className="container mx-auto relative z-10 max-w-7xl">
-          <div className="text-center mb-6 sm:mb-10 lg:mb-16">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-2 sm:mb-3 md:mb-4">Nuestro Proceso Circular</h2>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto text-pretty px-4">
+          <div className="text-center mb-5 sm:mb-8 md:mb-10 lg:mb-16">
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-foreground mb-2 sm:mb-3 md:mb-4 px-2 sm:px-4">Nuestro Proceso Circular</h2>
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-2xl mx-auto text-pretty px-2 sm:px-4">
               Un ciclo sostenible que transforma residuos en recursos valiosos
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8 items-center">
             {/* Paso 1 */}
             <div className="relative">
               <div 
@@ -584,7 +587,7 @@ export default function HidrocrinLanding() {
       </section>
 
       {/* Contacto Section */}
-      <section id="contacto" className="py-10 sm:py-14 lg:py-20 px-4 relative overflow-hidden">
+      <section id="contacto" className="py-8 sm:py-10 md:py-14 lg:py-20 px-3 sm:px-4 relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 left-10 w-32 h-32 bg-emerald-300 rounded-full blur-3xl"></div>
@@ -624,22 +627,22 @@ export default function HidrocrinLanding() {
           </div>
 
           {/* Calendario de Actividades */}
-          <div className="mb-12 sm:mb-16">
+          <div className="mb-8 sm:mb-10 md:mb-12 lg:mb-16">
             <ActivityCalendar />
           </div>
 
-          <div id="contacto-formulario" className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-stretch">
+          <div id="contacto-formulario" className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12 items-stretch">
             {/* Formulario de Contacto */}
             <div 
-              className="p-6 sm:p-8 lg:p-10 rounded-2xl sm:rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl h-full flex flex-col"
+              className="p-4 sm:p-6 md:p-8 lg:p-10 rounded-xl sm:rounded-2xl lg:rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl h-full flex flex-col"
               style={{
                 background: 'rgba(16, 185, 129, 0.08)',
                 backdropFilter: 'blur(20px)',
               }}
             >
-              <div className="mb-6 sm:mb-8">
-                <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-2 sm:mb-3">Envíanos un Mensaje</h3>
-                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+              <div className="mb-4 sm:mb-6 md:mb-8">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-foreground mb-2 sm:mb-2.5 md:mb-3">Envíanos un Mensaje</h3>
+                <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed">
                   Cuéntanos sobre tu proyecto, inquietudes o cómo te gustaría colaborar con nosotros.
                 </p>
               </div>
@@ -702,15 +705,15 @@ export default function HidrocrinLanding() {
 
             {/* Información de Contacto */}
             <div 
-              className="p-6 sm:p-8 lg:p-10 rounded-2xl sm:rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl h-full flex flex-col"
+              className="p-4 sm:p-6 md:p-8 lg:p-10 rounded-xl sm:rounded-2xl lg:rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl h-full flex flex-col"
               style={{
                 background: 'rgba(16, 185, 129, 0.08)',
                 backdropFilter: 'blur(20px)',
               }}
             >
-                <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-4 sm:mb-6">Conoce más y apóyanos en</h3>
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-foreground mb-3 sm:mb-4 md:mb-6">Conoce más y apóyanos en</h3>
                 
-                <div className="space-y-3 sm:space-y-4 lg:space-y-6 flex-1">
+                <div className="space-y-2.5 sm:space-y-3 md:space-y-4 lg:space-y-6 flex-1">
                   <a 
                     href="https://www.instagram.com/hidrrcrin?igsh=MTJxdTJqdGtia3R2YQ==" 
                     target="_blank" 

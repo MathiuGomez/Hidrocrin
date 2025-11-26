@@ -41,11 +41,14 @@ export default function SobreNosotros() {
             
             {/* Imagen */}
             <div className="max-w-5xl mx-auto">
-              <div className="rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl">
+              <div className="rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl bg-gray-100">
                 <img 
                   src={IMAGES.SOBRE_NOSOTROS} 
                   alt={IMAGE_ALTS.SOBRE_NOSOTROS}
+                  loading="eager"
+                  decoding="async"
                   className="w-full h-auto object-cover"
+                  style={{ maxWidth: '100%', height: 'auto' }}
                 />
               </div>
             </div>
@@ -54,10 +57,10 @@ export default function SobreNosotros() {
       </section>
 
       {/* Main Content Section */}
-      <section className="py-6 sm:py-8 lg:py-10 px-4">
+      <section className="py-5 sm:py-6 md:py-8 lg:py-10 px-3 sm:px-4">
         <div className="container mx-auto max-w-4xl">
           <div 
-            className="p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl sm:rounded-2xl lg:rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-xl mb-4 sm:mb-6 md:mb-8"
+            className="p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl sm:rounded-2xl lg:rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-xl mb-4 sm:mb-5 md:mb-6 lg:mb-8"
             style={{
               background: 'rgba(16, 185, 129, 0.08)',
               backdropFilter: 'blur(20px)',
@@ -75,7 +78,7 @@ export default function SobreNosotros() {
                 Nuestra propuesta une dos mundos que parecían distantes: la peluquería y la agricultura, generando una 
                 solución sustentable que reduce residuos, disminuye el consumo de agua y apoya a pequeños agricultores.
               </p>
-              <p className="text-foreground font-semibold">
+              <p className="text-foreground font-semibold text-sm sm:text-base md:text-lg">
                 Creemos que las pequeñas acciones generan grandes cambios y trabajamos día a día para demostrar que la 
                 sustentabilidad puede surgir desde lo cotidiano.
               </p>
@@ -83,7 +86,7 @@ export default function SobreNosotros() {
           </div>
 
           {/* Valores Section */}
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-5 lg:gap-6">
             <div 
               className="p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl sm:rounded-2xl lg:rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-xl text-center"
               style={{
@@ -91,11 +94,18 @@ export default function SobreNosotros() {
                 backdropFilter: 'blur(20px)',
               }}
             >
-              <div className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3 md:mb-4">
-                <Leaf className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-emerald-600" />
+              <div className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-2.5 sm:mb-3 md:mb-4">
+                <Leaf className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-emerald-600" />
               </div>
-              <h3 className="text-base sm:text-lg md:text-xl font-bold text-foreground mb-2 sm:mb-3">Sustentabilidad</h3>
-              <p className="text-xs sm:text-sm md:text-base text-muted-foreground">
+              <div className="flex flex-row items-center justify-center gap-2 mb-2 sm:mb-2.5 md:mb-3">
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-foreground">Sustentabilidad</h3>
+                <img 
+                  src={IMAGES.LOGO} 
+                  alt={IMAGE_ALTS.LOGO} 
+                  className="h-5 sm:h-6 md:h-7 object-contain"
+                />
+              </div>
+              <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed">
                 Transformamos residuos en recursos valiosos para el medio ambiente
               </p>
             </div>
@@ -107,11 +117,18 @@ export default function SobreNosotros() {
                 backdropFilter: 'blur(20px)',
               }}
             >
-              <div className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3 md:mb-4">
-                <Recycle className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-teal-600" />
+              <div className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-2.5 sm:mb-3 md:mb-4">
+                <Recycle className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-teal-600" />
               </div>
-              <h3 className="text-base sm:text-lg md:text-xl font-bold text-foreground mb-2 sm:mb-3">Economía Circular</h3>
-              <p className="text-xs sm:text-sm md:text-base text-muted-foreground">
+              <div className="flex flex-row items-center justify-center gap-2 mb-2 sm:mb-2.5 md:mb-3">
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-foreground">Economía Circular</h3>
+                <img 
+                  src={IMAGES.LOGO} 
+                  alt={IMAGE_ALTS.LOGO} 
+                  className="h-5 sm:h-6 md:h-7 object-contain"
+                />
+              </div>
+              <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed">
                 Cerramos el ciclo de los residuos creando valor para la comunidad
               </p>
             </div>
@@ -123,11 +140,18 @@ export default function SobreNosotros() {
                 backdropFilter: 'blur(20px)',
               }}
             >
-              <div className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3 md:mb-4">
-                <Users className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-emerald-600" />
+              <div className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-2.5 sm:mb-3 md:mb-4">
+                <Users className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-emerald-600" />
               </div>
-              <h3 className="text-base sm:text-lg md:text-xl font-bold text-foreground mb-2 sm:mb-3">Impacto Social</h3>
-              <p className="text-xs sm:text-sm md:text-base text-muted-foreground">
+              <div className="flex flex-row items-center justify-center gap-2 mb-2 sm:mb-2.5 md:mb-3">
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-foreground">Impacto Social</h3>
+                <img 
+                  src={IMAGES.LOGO} 
+                  alt={IMAGE_ALTS.LOGO} 
+                  className="h-5 sm:h-6 md:h-7 object-contain"
+                />
+              </div>
+              <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed">
                 Apoyamos a pequeños agricultores y promovemos prácticas sostenibles
               </p>
             </div>

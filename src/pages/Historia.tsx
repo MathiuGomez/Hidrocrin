@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import PageLayout from "../components/layout/PageLayout"
 import { CheckCircle2, Calendar, MapPin, Users, GraduationCap, Leaf } from "lucide-react"
+import { IMAGES, IMAGE_ALTS } from "../assets/images"
 
 export default function Historia() {
   useEffect(() => {
@@ -147,10 +148,17 @@ export default function Historia() {
                 backdropFilter: 'blur(20px)',
               }}
             >
-              <div className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 bg-emerald-100 rounded-full flex items-center justify-center mb-2 sm:mb-3 md:mb-4">
+              <div className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3 md:mb-4">
                 <Leaf className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-emerald-600" />
               </div>
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-2 sm:mb-3 md:mb-4">Nuestra Misión</h2>
+              <div className="flex flex-row items-center justify-center gap-2 sm:gap-3 mb-2 sm:mb-3 md:mb-4">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground">Nuestra Misión</h2>
+                <img 
+                  src={IMAGES.LOGO} 
+                  alt={IMAGE_ALTS.LOGO} 
+                  className="h-6 sm:h-8 md:h-10 object-contain"
+                />
+              </div>
               <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed">
                 Darle una segunda vida al cabello humano, transformándolo en soluciones ecológicas que contribuyan 
                 a la retención de humedad en suelos agrícolas, especialmente en zonas afectadas por la sequía. 
@@ -167,10 +175,17 @@ export default function Historia() {
                 backdropFilter: 'blur(20px)',
               }}
             >
-              <div className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 bg-teal-100 rounded-full flex items-center justify-center mb-2 sm:mb-3 md:mb-4">
+              <div className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3 md:mb-4">
                 <CheckCircle2 className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-teal-600" />
               </div>
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-2 sm:mb-3 md:mb-4">Nuestra Visión</h2>
+              <div className="flex flex-row items-center justify-center gap-2 sm:gap-3 mb-2 sm:mb-3 md:mb-4">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground">Nuestra Visión</h2>
+                <img 
+                  src={IMAGES.LOGO} 
+                  alt={IMAGE_ALTS.LOGO} 
+                  className="h-6 sm:h-8 md:h-10 object-contain"
+                />
+              </div>
               <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed">
                 Convertir a Hidrocrin en un referente de innovación social y sustentabilidad, demostrando que los 
                 residuos pueden transformarse en recursos valiosos. Aspiramos a expandir nuestro impacto más allá 
@@ -183,39 +198,39 @@ export default function Historia() {
       </section>
 
       {/* Eventos Section */}
-      <section className="py-6 sm:py-8 lg:py-10 px-4 bg-muted/30">
+      <section className="py-5 sm:py-6 md:py-8 lg:py-10 px-3 sm:px-4 bg-muted/30">
         <div className="container mx-auto max-w-5xl">
-          <div className="text-center mb-4 sm:mb-5 md:mb-6">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-2 sm:mb-3 px-4">Nuestros Eventos y Participaciones</h2>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
+          <div className="text-center mb-4 sm:mb-5 md:mb-6 lg:mb-8">
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-foreground mb-2 sm:mb-3 px-2 sm:px-4">Nuestros Eventos y Participaciones</h2>
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-2xl mx-auto px-2 sm:px-4">
               Compartiendo conocimiento y expandiendo nuestro impacto
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-5">
             {eventos.map((evento, index) => {
               const Icon = evento.icon
               return (
                 <div
                   key={index}
-                  className="p-5 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-2xl hover:shadow-2xl transition-all duration-300"
+                  className="p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl sm:rounded-2xl lg:rounded-3xl backdrop-blur-xl border border-emerald-200/30 shadow-xl hover:shadow-2xl transition-all duration-300"
                   style={{
                     background: 'rgba(16, 185, 129, 0.08)',
                     backdropFilter: 'blur(20px)',
                   }}
                 >
-                  <div className="h-10 w-10 sm:h-12 sm:w-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
-                    <Icon className="h-5 w-5 sm:h-6 sm:w-6 text-emerald-600" />
+                  <div className="h-9 w-9 sm:h-10 sm:w-10 md:h-12 md:w-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-2.5 sm:mb-3 md:mb-4">
+                    <Icon className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-emerald-600" />
                   </div>
-                  <div className="flex items-center gap-2 mb-2 sm:mb-3">
-                    <Calendar className="h-3 w-3 sm:h-4 sm:w-4 text-emerald-600" />
-                    <span className="text-xs sm:text-sm font-semibold text-emerald-600 uppercase tracking-wide">
+                  <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3">
+                    <Calendar className="h-3 w-3 sm:h-3.5 sm:w-3.5 md:h-4 md:w-4 text-emerald-600 flex-shrink-0" />
+                    <span className="text-[10px] sm:text-xs md:text-sm font-semibold text-emerald-600 uppercase tracking-wide">
                       {evento.tipo}
                     </span>
                   </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">{evento.lugar}</h3>
-                  <div className="flex items-center gap-2 text-sm sm:text-base text-muted-foreground">
-                    <MapPin className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold text-foreground mb-1.5 sm:mb-2 leading-snug">{evento.lugar}</h3>
+                  <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm md:text-base text-muted-foreground">
+                    <MapPin className="h-3 w-3 sm:h-3.5 sm:w-3.5 md:h-4 md:w-4 flex-shrink-0" />
                     <span>{evento.ubicacion}</span>
                   </div>
                 </div>
@@ -226,20 +241,20 @@ export default function Historia() {
       </section>
 
       {/* Galería Section - Preparada para imágenes */}
-      <section className="py-6 sm:py-8 lg:py-10 px-4">
+      <section className="py-5 sm:py-6 md:py-8 lg:py-10 px-3 sm:px-4">
         <div className="container mx-auto max-w-5xl">
-          <div className="text-center mb-4 sm:mb-5 md:mb-6">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-2 sm:mb-3 px-4">Imágenes de Nuestra Historia</h2>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
+          <div className="text-center mb-4 sm:mb-5 md:mb-6 lg:mb-8">
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-foreground mb-2 sm:mb-3 px-2 sm:px-4">Imágenes de Nuestra Historia</h2>
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-2xl mx-auto px-2 sm:px-4">
               Momentos que han marcado nuestro camino
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-5 lg:gap-6">
             {historiaImages.map((image, index) => (
               <div 
                 key={index} 
-                className="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer"
+                className="relative aspect-[4/3] rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden group cursor-pointer bg-gray-100"
                 style={{
                   background: 'rgba(16, 185, 129, 0.08)',
                   backdropFilter: 'blur(20px)',
@@ -248,14 +263,17 @@ export default function Historia() {
                 <img 
                   src={image.src} 
                   alt={image.alt}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  style={{ aspectRatio: '4/3' }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white">
-                    <p className="font-semibold text-sm sm:text-base lg:text-lg">{image.description}</p>
+                  <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 md:p-6 text-white">
+                    <p className="font-semibold text-xs sm:text-sm md:text-base lg:text-lg">{image.description}</p>
                   </div>
                 </div>
-                <div className="absolute inset-0 border border-emerald-200/30 rounded-xl sm:rounded-2xl pointer-events-none"></div>
+                <div className="absolute inset-0 border border-emerald-200/30 rounded-lg sm:rounded-xl md:rounded-2xl pointer-events-none"></div>
               </div>
             ))}
           </div>
