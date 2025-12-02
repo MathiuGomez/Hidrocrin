@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react"
 import { Link, useLocation } from "react-router-dom"
-import { Button } from "../ui/button"
-import { Input } from "../ui/input"
-import { Textarea } from "../ui/textarea"
-import { Video } from "../ui/video"
-import { Carousel } from "../ui/carousel"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { Video } from "@/components/ui/video"
+import { Carousel } from "@/components/ui/carousel"
 import { Droplet, Leaf, Recycle, Users, ArrowRight, CheckCircle2, Mail, Phone, Instagram, Facebook } from "lucide-react"
-import AnimatedNav from "../layout/AnimatedNav"
-import { IMAGES, IMAGE_ALTS } from "../../assets/images"
-import ActivityCalendar from "./ActivityCalendar"
+import AnimatedNav from "@/components/layout/AnimatedNav"
+import { IMAGES, IMAGE_ALTS } from "@/assets/images"
+import ActivityCalendar from "@/features/calendar/ActivityCalendar"
 
-export default function HidrocrinLanding() {
+export default function LandingSection() {
   const location = useLocation()
   const [formData, setFormData] = useState({
     nombre: "",
@@ -1025,3 +1025,4 @@ export default function HidrocrinLanding() {
     </div>
   )
 }
+

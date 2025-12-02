@@ -1,9 +1,9 @@
 import { useEffect } from "react"
-import PageLayout from "../components/layout/PageLayout"
+import PageLayout from "@/components/layout/PageLayout"
 import { CheckCircle2, Calendar, MapPin, Users, GraduationCap, Leaf } from "lucide-react"
-import { IMAGES, IMAGE_ALTS } from "../assets/images"
+import { IMAGES, IMAGE_ALTS } from "@/assets/images"
 
-export default function Historia() {
+export default function History() {
   useEffect(() => {
     // Hacer scroll al inicio de la página cuando se carga
     window.scrollTo({ top: 0, behavior: 'smooth' })

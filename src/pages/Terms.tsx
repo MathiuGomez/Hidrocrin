@@ -1,9 +1,9 @@
 import { useEffect } from "react"
 import { Link } from "react-router-dom"
-import PageLayout from "../components/layout/PageLayout"
+import PageLayout from "@/components/layout/PageLayout"
 import { FileText, Shield, ExternalLink, AlertCircle, Mail, Edit } from "lucide-react"
 
-export default function TerminosYCondiciones() {
+export default function Terms() {
   useEffect(() => {
     // Hacer scroll al inicio de la página cuando se carga
     window.scrollTo({ top: 0, behavior: 'smooth' })

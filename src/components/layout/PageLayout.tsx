@@ -1,6 +1,6 @@
 import type { ReactNode } from "react"
-import AnimatedNav from "./AnimatedNav"
-import Footer from "./Footer"
+import AnimatedNav from "@/components/layout/AnimatedNav"
+import Footer from "@/components/layout/Footer"
 
 interface PageLayoutProps {
   children: ReactNode

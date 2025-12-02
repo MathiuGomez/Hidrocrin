@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { gsap } from 'gsap';
-import { IMAGES, IMAGE_ALTS } from '../../assets/images';
+import { IMAGES, IMAGE_ALTS } from '@/assets/images';
 
 interface NavItem {
   href: string;

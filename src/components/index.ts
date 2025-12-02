@@ -1,12 +1,10 @@
 // Layout Components
 export { default as AnimatedNav } from './layout/AnimatedNav'
-
-// Section Components
-export { default as HidrocrinLanding } from './sections/HidrocrinLanding'
+export { default as Footer } from './layout/Footer'
+export { default as PageLayout } from './layout/PageLayout'
 
 // UI Components
-export { Button } from './ui/button'
-export { Input } from './ui/input'
-export { Textarea } from './ui/textarea'
-export { Card } from './ui/card'
-export { Video } from './ui/video'
+export * from './ui'
+
+// Redirect Components
+export { default as ContactRedirect } from './ContactRedirect'

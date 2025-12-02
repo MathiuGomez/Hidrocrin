@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 
-export default function ContactoRedirect() {
+export default function ContactRedirect() {
   const navigate = useNavigate()
 
   useEffect(() => {

@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { Calendar } from '../ui/calendar';
+import { Calendar } from '@/components/ui/calendar';
 import { Calendar as CalendarIcon, MapPin, Users } from 'lucide-react';
 import { format, isSameDay } from 'date-fns';
 import { es } from 'date-fns/locale';
