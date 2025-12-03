@@ -20,7 +20,7 @@ export default function LandingSection() {
 
   async function submitForm(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    const response = await fetch("https://contacto.carodeurb.workers.dev/", {
+    await fetch("https://contacto.carodeurb.workers.dev/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
