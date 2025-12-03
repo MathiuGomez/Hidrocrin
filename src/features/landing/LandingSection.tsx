@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, type FormEvent } from "react"
 import { Link, useLocation } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -17,6 +17,18 @@ export default function LandingSection() {
     email: "",
     mensaje: "",
   })
+
+  async function submitForm(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    const response = await fetch("https://contacto.carodeurb.workers.dev/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+    console.log("Se envio el formulario correctamente")
+  }
 
   useEffect(() => {
     // Verificar si venimos de ContactoRedirect y debemos hacer scroll al contacto
@@ -81,11 +93,6 @@ export default function LandingSection() {
     { href: "#contacto-formulario", label: "Contacto" }
   ]
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log("Formulario enviado:", formData)
-    // Aquí se puede agregar la lógica de envío
-  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-background to-teal-50">
@@ -647,7 +654,7 @@ export default function LandingSection() {
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6 flex-1 flex flex-col">
+              <form onSubmit={submitForm} className="space-y-4 sm:space-y-6 flex-1 flex flex-col">
                 <div className="space-y-2 sm:space-y-3">
                   <label htmlFor="nombre" className="text-xs sm:text-sm font-semibold text-foreground block">
                     Nombre Completo
