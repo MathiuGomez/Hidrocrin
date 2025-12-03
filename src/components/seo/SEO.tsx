@@ -12,8 +12,8 @@ export default function SEO({
   title, 
   description, 
   keywords, 
-  image = '/assets/images/Logo-hidrocrin.jpg', 
-  url = 'https://hidrocrin.vercel.app/' 
+  image = '/assets/images/front-page.png', 
+  url = 'https://hidrocrin.cl/' 
 }: SEOProps) {
   const siteTitle = "Hidrocrin - Alfombras de Cabello Reciclado para Agricultura Sostenible";
   const defaultDescription = "Hidrocrin transforma cabello de peluquerías en alfombras innovadoras que retienen agua y nutren el suelo. Solución ecológica para combatir la sequía.";
