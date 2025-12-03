@@ -9,6 +9,7 @@ import { Droplet, Leaf, Recycle, Users, ArrowRight, CheckCircle2, Mail, Phone, I
 import AnimatedNav from "@/components/layout/AnimatedNav"
 import { IMAGES, IMAGE_ALTS } from "@/assets/images"
 import ActivityCalendar from "@/features/calendar/ActivityCalendar"
+import SEO from "@/components/seo/SEO"
 
 export default function LandingSection() {
   const location = useLocation()
@@ -96,6 +97,7 @@ export default function LandingSection() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-background to-teal-50">
+      <SEO image="/assets/images/front-page.png" />
       {/* Animated Navigation */}
       <AnimatedNav items={navItems} />
 

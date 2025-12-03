@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import PageLayout from "@/components/layout/PageLayout"
 import { Users, Leaf, Recycle } from "lucide-react"
 import { IMAGES, IMAGE_ALTS } from "@/assets/images"
+import SEO from "@/components/seo/SEO"
 
 export default function About() {
   useEffect(() => {
@@ -11,6 +12,10 @@ export default function About() {
 
   return (
     <PageLayout>
+      <SEO 
+        title="Sobre Nosotros" 
+        description="Conoce al equipo detrás de Hidrocrin y nuestra misión de transformar residuos de peluquería en recursos valiosos para el medio ambiente."
+      />
       {/* Hero Section */}
       <section className="pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-6 sm:pb-8 lg:pb-10 px-4 relative overflow-hidden">
         {/* Background Pattern */}

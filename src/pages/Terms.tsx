@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { Link } from "react-router-dom"
 import PageLayout from "@/components/layout/PageLayout"
 import { FileText, Shield, ExternalLink, AlertCircle, Mail, Edit } from "lucide-react"
+import SEO from "@/components/seo/SEO"
 
 export default function Terms() {
   useEffect(() => {
@@ -43,6 +44,10 @@ export default function Terms() {
 
   return (
     <PageLayout>
+      <SEO 
+        title="Términos y Condiciones" 
+        description="Términos y condiciones de uso del sitio web de Hidrocrin. Información legal sobre el uso de nuestros servicios y contenidos."
+      />
       {/* Hero Section */}
       <section className="pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-4 sm:pb-6 px-3 sm:px-4 relative overflow-hidden">
         {/* Background Pattern */}

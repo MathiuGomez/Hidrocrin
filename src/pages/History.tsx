@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import PageLayout from "@/components/layout/PageLayout"
 import { CheckCircle2, Calendar, MapPin, Users, GraduationCap, Leaf } from "lucide-react"
 import { IMAGES, IMAGE_ALTS } from "@/assets/images"
+import SEO from "@/components/seo/SEO"
 
 export default function History() {
   useEffect(() => {
@@ -56,6 +57,10 @@ export default function History() {
 
   return (
     <PageLayout>
+      <SEO 
+        title="Historia" 
+        description="Descubre cómo nació Hidrocrin: de una idea innovadora en el Instituto AIEP a una solución sostenible para la agricultura usando cabello reciclado."
+      />
       {/* Hero Section */}
       <section className="pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-6 sm:pb-8 lg:pb-10 px-4 relative overflow-hidden">
         {/* Background Pattern */}
