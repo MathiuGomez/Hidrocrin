@@ -97,7 +97,7 @@ export default function LandingSection() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-background to-teal-50">
-      <SEO image="/assets/images/front-page.png" />
+      <SEO image="https://hidrocrin.cl/assets/images/front-page.png" />
       {/* Animated Navigation */}
       <AnimatedNav items={navItems} />
 
